@@ -1,0 +1,21 @@
+# == Schema Information
+#
+# Table name: friend_requests
+#
+#  id           :bigint           not null, primary key
+#  requestor_id :bigint           not null
+#  receiver_id  :bigint           not null
+#  status       :boolean          default(FALSE)
+#  created_at   :datetime         not null
+#  updated_at   :datetime         not null
+#
+
+one:
+  requestor_id: one
+  receiver_id: one
+  status: false
+
+two:
+  requestor_id: two
+  receiver_id: two
+  status: false

@@ -12,8 +12,24 @@
 #  remember_created_at    :datetime
 #  created_at             :datetime         not null
 #  updated_at             :datetime         not null
+#  username               :string           not null
 #
 class User < ApplicationRecord
   devise :database_authenticatable, :registerable,
          :recoverable, :rememberable, :validatable
+
+  has_many :requests_sent, class_name: 'FriendRequest', foreign_key: 'requestor_id',
+                           inverse_of: 'requestor', dependent: :destroy
+
+  has_many :requests_received, class_name: 'FriendRequest', foreign_key: 'receiver_id',
+                               inverse_of: 'receiver', dependent: :destroy
+
+  has_many :friends, ->  { merge(FriendRequest.friends) },
+           through: :requests_sent, source: :requestor
+  
+  has_many :pending_requests, -> { merge(FriendRequest.not_friends) },
+           through: :requests_sent, source: :requestor
+
+  has_many :received_requests, -> { merge(FriendRequest.not_friends) },
+           through: :requests_received, source: :receiver
 end
