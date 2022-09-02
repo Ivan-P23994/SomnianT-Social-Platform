@@ -24,12 +24,19 @@ class User < ApplicationRecord
   has_many :requests_received, class_name: 'FriendRequest', foreign_key: 'receiver_id',
                                inverse_of: 'receiver', dependent: :destroy
 
-  has_many :friends, ->  { merge(FriendRequest.friends) },
-           through: :requests_sent, source: :requestor
-  
+  has_many :friends_a, -> { merge(FriendRequest.friends) },
+           through: :requests_sent, source: :receiver
+
+  has_many :friends_b, -> { merge(FriendRequest.friends) },
+           through: :requests_received, source: :requestor
+
   has_many :pending_requests, -> { merge(FriendRequest.not_friends) },
-           through: :requests_sent, source: :requestor
+           through: :requests_sent, source: :receiver
 
   has_many :received_requests, -> { merge(FriendRequest.not_friends) },
-           through: :requests_received, source: :receiver
+           through: :requests_received, source: :requestor
+
+  def friends
+    friends_a + friends_b
+  end
 end
