@@ -18,22 +18,22 @@ class User < ApplicationRecord
   devise :database_authenticatable, :registerable,
          :recoverable, :rememberable, :validatable
 
-  has_many :requests_sent, class_name: 'FriendRequest', foreign_key: 'requestor_id',
+  has_many :requests_sent, class_name: 'Friendship', foreign_key: 'requestor_id',
                            inverse_of: 'requestor', dependent: :destroy
 
-  has_many :requests_received, class_name: 'FriendRequest', foreign_key: 'receiver_id',
+  has_many :requests_received, class_name: 'Friendship', foreign_key: 'receiver_id',
                                inverse_of: 'receiver', dependent: :destroy
 
-  has_many :pending_requests, -> { merge(FriendRequest.not_friends) },
+  has_many :pending_requests, -> { merge(Friendships.not_friends) },
            through: :requests_sent, source: :receiver
 
-  has_many :received_requests, -> { merge(FriendRequest.not_friends) },
+  has_many :received_requests, -> { merge(Friendships.not_friends) },
            through: :requests_received, source: :requestor
 
   has_many :friends, lambda { |user|
                        unscope(where: :user_id)
                          .where("status = 'true'")
-                         .where('friend_requests.requestor_id = :user_id OR
-                       friend_requests.receiver_id = :user_id ', user_id: user.id)
-                     }, class_name: 'FriendRequest'
+                         .where('friendships.requestor_id = :user_id OR
+                       friendships.receiver_id = :user_id ', user_id: user.id)
+                     }, class_name: 'Friendship'
 end

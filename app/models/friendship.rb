@@ -2,7 +2,7 @@
 
 # == Schema Information
 #
-# Table name: friend_requests
+# Table name: friendships
 #
 #  id           :bigint           not null, primary key
 #  requestor_id :bigint           not null
@@ -11,7 +11,7 @@
 #  created_at   :datetime         not null
 #  updated_at   :datetime         not null
 #
-class FriendRequest < ApplicationRecord
+class Friendship < ApplicationRecord
   belongs_to :requestor, class_name: 'User', foreign_key: 'requestor_id'
   belongs_to :receiver, class_name: 'User', foreign_key: 'receiver_id'
 
