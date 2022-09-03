@@ -16,8 +16,8 @@ class Friendship < ApplicationRecord
   validate :request_in_one_direction_only
   validate :no_requests_to_current_friends, if: -> { requestor }
 
-  belongs_to :requestor, class_name: 'User', foreign_key: 'requestor_id'
-  belongs_to :receiver, class_name: 'User', foreign_key: 'receiver_id'
+  belongs_to :requestor, class_name: 'User'
+  belongs_to :receiver, class_name: 'User'
 
   scope :friends, -> { where('status =?', true) }
   scope :not_friends, -> { where('status =?', false) }
