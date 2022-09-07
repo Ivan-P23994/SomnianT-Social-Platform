@@ -1,27 +1,24 @@
-<div class="flex flex-row justify-center">
-  <div class="|">
+<div class="flex flex-row justify-center h-max">
+  <div class="flex flex-col  text-center h-max">
     <h2>Log in</h2>
   
     <%= form_for(resource, as: resource_name, url: session_path(resource_name)) do |f| %>
-      <div class="field">
-        <%= f.label :email %><br />
-        <%= f.email_field :email, autofocus: true, autocomplete: "email" %>
-      </div>
-  
-      <div class="field">
-        <%= f.label :password %><br />
-        <%= f.password_field :password, autocomplete: "current-password" %>
-      </div>
-  
-      <% if devise_mapping.rememberable? %>
+    <div class="flex flex-col justify-around text-start h-40vh">
         <div class="field">
-          <%= f.check_box :remember_me %>
-          <%= f.label :remember_me %>
+          <%= f.label :email %><br />
+          <%= f.email_field :email, autofocus: true, autocomplete: "email" %>
         </div>
-      <% end %>
-  
-      <div class="actions">
-        <%= f.submit "Log in" %>
+        <div class="field">
+          <%= f.label :password %><br />
+          <%= f.password_field :password, autocomplete: "current-password" %>
+        </div>
+        <% if devise_mapping.rememberable? %>
+          <div class="field">
+            <%= f.check_box :remember_me %>
+            <%= f.label :remember_me %>
+          </div>
+        <% end %>
+        <button type="button" class= " text-white bg-gradient-to-r from-blue-500 via-blue-600 to-blue-700 hover:bg-gradient-to-br focus:ring-4 focus:outline-none focus:ring-blue-300 dark:focus:ring-blue-800 font-medium rounded-lg text-sm px-5 py-2.5 text-center mr-2 mb-2"><%= f.submit "Log in" %></button>
       </div>
     <% end %>
   

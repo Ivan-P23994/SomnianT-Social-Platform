@@ -12,8 +12,10 @@
   </head>
 
   <body>
-    <p class="notice"><%= notice %></p>
-    <p class="alert"><%= alert %></p>
-    <div class="w-screen h-screen flex flex-col justify-center"><%= yield %></div>
+    <%= render 'application_partials/navbar' %>
+    <div class="w-screen h-screen flex flex-col justify-center">
+      <%= render 'application_partials/flash_messages' %>  
+      <%= yield %>
+    </div>
   </body>
 </html>
