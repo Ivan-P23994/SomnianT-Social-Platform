@@ -1,27 +1,43 @@
-<div class="flex flex-row justify-center h-max">
-  <div class="flex flex-col  text-center h-max">
-    <h2>Log in</h2>
-  
+<div class="flex flex-row h-max justify-evenly items-center" >
+  <div class="flex flex-col justify-between rounded-sm h-55vh w-30vw">
+    <div class="flex flex-col h-15vh ">    
+      <h1 class="font-bold text-4xl text-blue-600 mb-3">fakebook</h1>
+      <div class="flex flex-col">
+        <h1 class="font-normal text-2xl text-gray-700">Recent logins</h1>
+        <p class="font-normal text-l text-gray-700">Click your picture or add an account.</p>
+      </div>
+    </div>
+    <div class="flex flex-row h-35vh w-30vw justify-between border-2">  
+      <div class="flex-col h-40vh w-15vw rounded-lg">  
+        <div class="flex flex-row h-48 w-42"><%= image_tag "cat.jpeg" %></div>
+        <h1 class="flex flex-row h-full text-center">John Doe</h1>
+      </div>
+      <div class="flex flex-col rounded-lg h-40vh w-15vw">  
+        <div class="flex flex-row h-16 w-16"><%= image_tag "plus.png"%></div>
+        <div class="flex flex-row w-6vw justify-center content-center">John Doe</div>
+      </div>
+    </div>
+  </div>
+  <div class="flex flex-col content-evenly justify-center text-center h-45vh w-30vw border-2 drop-shadow-xl bg-white rounded-lg ">
     <%= form_for(resource, as: resource_name, url: session_path(resource_name)) do |f| %>
-    <div class="flex flex-col justify-around text-start h-40vh">
-        <div class="field">
-          <%= f.label :email %><br />
-          <%= f.email_field :email, autofocus: true, autocomplete: "email" %>
+    <div class="flex flex-col space-y-4 content-center text-start">
+        <div class="field flex flex-row justify-center">
+          <%= f.email_field :email, autofocus: true, autocomplete: "email", placeholder: "Email address", class: 'rounded-lg border-gray-300 w-full mx-4' %>
         </div>
-        <div class="field">
-          <%= f.label :password %><br />
-          <%= f.password_field :password, autocomplete: "current-password" %>
+        <div class="field flex flex-row justify-center">
+          <%= f.password_field :password, autocomplete: "current-password", placeholder: "Password", class: "rounded-lg  w-full mx-4 border-gray-300" %>
         </div>
-        <% if devise_mapping.rememberable? %>
-          <div class="field">
-            <%= f.check_box :remember_me %>
-            <%= f.label :remember_me %>
-          </div>
-        <% end %>
-        <button type="button" class= " text-white bg-gradient-to-r from-blue-500 via-blue-600 to-blue-700 hover:bg-gradient-to-br focus:ring-4 focus:outline-none focus:ring-blue-300 dark:focus:ring-blue-800 font-medium rounded-lg text-sm px-5 py-2.5 text-center mr-2 mb-2"><%= f.submit "Log in" %></button>
+        <button type="button" class= "mx-4 text-white bg-gradient-to-r from-blue-500 via-blue-600 to-blue-700 hover:bg-gradient-to-br focus:ring-4 focus:outline-none focus:ring-blue-300 dark:focus:ring-blue-800 font-medium rounded-lg text-sm px-5 py-2.5 text-center"><%= f.submit "Log in" %></button>
+        <div class="flex flex-row text-sm justify-center text-center text-blue-500">
+          <%= link_to "Forgotten password?", new_password_path(resource_name) %>
+        </div>
+
       </div>
     <% end %>
-  
-    <%= render "devise/shared/links" %>
+
+
+    <div class="flex flex-row justify-center content-evenly mx-4 mt-6 border-t-2 ">
+      <button type="button" class= "mx-4 mt-4 text-white bg-gradient-to-r from-green-500 via-green-600 to-green-700 hover:bg-gradient-to-br focus:ring-4 focus:outline-none focus:ring-green-300 dark:focus:ring-green-800 font-medium rounded-lg text-sm px-5 py-2.5 text-center mr-2 mb-2"><%= link_to "Create New Account", new_registration_path(resource_name) %></button>
+    </div>
   </div>
 </div>
