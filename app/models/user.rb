@@ -42,7 +42,6 @@ class User < ApplicationRecord
                        friendships.receiver_id = :user_id ', user_id: user.id)
                      }, class_name: 'Friendship'
 
-  validates :username, presence: true
   validates :email, presence: true,
                     uniqueness: { case_sensitive: false },
                     format: { with: VALID_EMAIL_REGEX, message: 'Email invalid' }
