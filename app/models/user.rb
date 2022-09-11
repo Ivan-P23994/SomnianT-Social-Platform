@@ -18,6 +18,11 @@ class User < ApplicationRecord
   devise :database_authenticatable, :registerable,
          :recoverable, :rememberable, :validatable
 
+  VALID_EMAIL_REGEX = /\A([\w+\-].?)+@[a-z\d\-]+(\.[a-z]+)*\.[a-z]+\z/i
+
+  has_one :profile, dependent: :destroy
+  accepts_nested_attributes_for :profile
+
   has_many :requests_sent, class_name: 'Friendship', foreign_key: 'requestor_id',
                            inverse_of: 'requestor', dependent: :destroy
 
@@ -36,4 +41,9 @@ class User < ApplicationRecord
                          .where('friendships.requestor_id = :user_id OR
                        friendships.receiver_id = :user_id ', user_id: user.id)
                      }, class_name: 'Friendship'
+
+  validates :username, presence: true
+  validates :email, presence: true,
+                    uniqueness: { case_sensitive: false },
+                    format: { with: VALID_EMAIL_REGEX, message: 'Email invalid' }
 end
