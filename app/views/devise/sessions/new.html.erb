@@ -1,4 +1,4 @@
-<div class="flex flex-col lg:flex-row h-max justify-evenly items-center " >
+<div class="flex flex-col lg:flex-row h-full w-full justify-evenly items-center py-24" >
   <div class="flex flex-col justify-around rounded-sm h-55vh w-30vw">
     <div class="flex flex-col h-15vh ">    
       <h1 class="font-bold text-4xl text-blue-600 mb-3">fakebook</h1>
@@ -11,14 +11,14 @@
 
       <div class="flex flex-col h-30vh w-15vw mr-6 box-content rounded-lg hover:drop-shadow-xl">  
         <%= image_tag "cat.jpeg", class: "flex flex-row drop-shadow-xl rounded-t-2xl border-2 object-fill h-20vh w-15vw" %>
-        <div class="flex flex-row font-medium text-gray-400 bg-white z-10 h-7vh w-10vw border-x-2 border-b-2 rounded-b-xl justify-center items-center">John Doe</div>
+        <div class="flex flex-row font-medium text-gray-400 bg-white z-10 h-8vh w-10vw border-x-2 border-b-2 rounded-b-xl justify-center items-center">John Doe</div>
       </div>
       <button>
         <%= link_to new_registration_path(resource_name) do %>
           <div class="flex flex-col box-content h-30vh w-15vw hover:drop-shadow-xl">
             <div class="flex flex-row bg-sky-50 rounded-t-2xl border-2 justify-center items-center h-20vh w-15vw">
                 <%= image_tag "plus.png", class: "h-12 w-12"%></div>
-            <div class="flex flex-row bg-white font-medium text-blue-500 h-7vh w-10vw border-x-2 border-b-2 rounded-b-xl justify-center items-center">Add Account</div>
+            <div class="flex flex-row bg-white font-medium text-blue-500 h-8vh w-10vw border-x-2 border-b-2 rounded-b-xl justify-center items-center">Add Account</div>
         <% end%>
       </button>
     </div>
