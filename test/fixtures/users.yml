@@ -3,6 +3,8 @@
 # Table name: users
 #
 #  id                     :bigint           not null, primary key
+#  first_name             :string           default(""), not null
+#  last_name              :string           default(""), not null
 #  email                  :string           default(""), not null
 #  encrypted_password     :string           default(""), not null
 #  reset_password_token   :string
@@ -10,7 +12,6 @@
 #  remember_created_at    :datetime
 #  created_at             :datetime         not null
 #  updated_at             :datetime         not null
-#  username               :string           not null
 #
 
 # This model initially had no columns defined. If you add columns to the

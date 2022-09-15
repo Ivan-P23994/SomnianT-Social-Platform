@@ -4,7 +4,9 @@
 #
 #  id          :bigint           not null, primary key
 #  user_id     :bigint           not null
-#  age         :integer          not null
+#  birth_year  :string
+#  birth_month :string
+#  birth_day   :string
 #  gender      :string
 #  occupation  :string
 #  birth_place :string

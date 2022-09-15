@@ -26,7 +26,9 @@ ActiveRecord::Schema[7.0].define(version: 2022_09_11_231456) do
 
   create_table "profiles", force: :cascade do |t|
     t.bigint "user_id", null: false
-    t.integer "age", null: false
+    t.string "birth_year"
+    t.string "birth_month"
+    t.string "birth_day"
     t.string "gender"
     t.string "occupation"
     t.string "birth_place"
@@ -36,6 +38,8 @@ ActiveRecord::Schema[7.0].define(version: 2022_09_11_231456) do
   end
 
   create_table "users", force: :cascade do |t|
+    t.string "first_name", default: "", null: false
+    t.string "last_name", default: "", null: false
     t.string "email", default: "", null: false
     t.string "encrypted_password", default: "", null: false
     t.string "reset_password_token"

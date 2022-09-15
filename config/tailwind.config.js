@@ -43,6 +43,7 @@ module.exports = {
           "10vw": "10vw",
           "20vw": "20vw",
           "30vw": "30vw",
+          "35vw": "35vw",
           "40vw": "40vw",
           "50vw": "50vw",
           "60vw": "60vw",

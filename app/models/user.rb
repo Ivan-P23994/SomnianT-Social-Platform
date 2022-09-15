@@ -5,6 +5,8 @@
 # Table name: users
 #
 #  id                     :bigint           not null, primary key
+#  first_name             :string           default(""), not null
+#  last_name              :string           default(""), not null
 #  email                  :string           default(""), not null
 #  encrypted_password     :string           default(""), not null
 #  reset_password_token   :string
@@ -12,7 +14,6 @@
 #  remember_created_at    :datetime
 #  created_at             :datetime         not null
 #  updated_at             :datetime         not null
-#  username               :string           not null
 #
 class User < ApplicationRecord
   devise :database_authenticatable, :registerable,
@@ -21,7 +22,7 @@ class User < ApplicationRecord
   VALID_EMAIL_REGEX = /\A([\w+\-].?)+@[a-z\d\-]+(\.[a-z]+)*\.[a-z]+\z/i
 
   has_one :profile, dependent: :destroy
-  accepts_nested_attributes_for :profile
+  accepts_nested_attributes_for :profile, allow_destroy: true
 
   has_many :requests_sent, class_name: 'Friendship', foreign_key: 'requestor_id',
                            inverse_of: 'requestor', dependent: :destroy
