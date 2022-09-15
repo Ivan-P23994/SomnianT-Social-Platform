@@ -17,23 +17,23 @@
 
             <%= f.fields_for :profile, resource.build_profile do |profile_subform| %>
               <div class="flex flex-row justify-items-stretch w-full space-x-3 [&>*]:border-gray-300 [&>*]:w-1/3 [&>*]:text-xs">
-                <%= select_day(Date.today, :field_name=>"birth_day") %>
-                <%= select_month(Date.today, :field_name=>"birth_month") %>
-                <%= select_year(Date.today, start_year: 1920, end_year: Date.today.year, :field_name=>"birth_year") %>
+                <%= select_day(Date.today, :field_name=>"profile_attributes[birth_day]", :prefix => 'user') %>
+                <%= select_month(Date.today, :field_name=>"birth_month", :prefix => 'user[profile_attributes]') %>
+                <%= select_year(Date.today, start_year: 1920, end_year: Date.today.year, :field_name=>"birth_year", :prefix => 'user[profile_attributes]') %>
               </div>
               <p class="text-xs text-gray-500">Gender</p>
               <div class="flex flex-row justify-items-stretch w-full space-x-3 [&>*]:w-1/3 [&>*]:text-xs">
                 <div class="flex fley-row justify-between items-center p-2 border-gray-300 h-9 border-2">
-                  <%= label_tag(:age_child, "Female") %>
-                  <%= radio_button_tag(:gender, "female") %>
+                  <%= label_tag(:gender, "Female") %>
+                  <%= radio_button_tag("user[profile_attributes][gender]", "female") %>
                 </div>
                 <div class="flex fley-row justify-between items-center p-2 border-gray-300 h-9 border-2">
-                  <%= label_tag(:age_adult, "Male") %>
-                  <%= radio_button_tag(:gender, "male") %>
+                  <%= label_tag(:gender, "Male") %>
+                  <%= radio_button_tag("user[profile_attributes][gender]", "male") %>
                 </div>
                 <div class="flex fley-row justify-between items-center p-2 border-gray-300 h-9 border-2">
-                  <%= label_tag(:age_adult, "Other") %>
-                  <%= radio_button_tag(:gender, "other") %>
+                  <%= label_tag(:gender, "Other") %>
+                  <%= radio_button_tag("user[profile_attributes][gender]", "other") %>
                 </div>
               </div>
             <% end %>
