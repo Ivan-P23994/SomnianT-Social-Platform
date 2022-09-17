@@ -1,0 +1,16 @@
+current directory: /Users/infinum/Desktop/VSC/facebook-clone/vendor/bundle/ruby/3.1.0/gems/bindex-0.8.1/ext/skiptrace
+/Users/infinum/.rbenv/versions/3.1.2/bin/ruby -I /Users/infinum/.rbenv/versions/3.1.2/lib/ruby/3.1.0 -r ./siteconf20220917-5138-pj0xem.rb extconf.rb
+creating Makefile
+
+current directory: /Users/infinum/Desktop/VSC/facebook-clone/vendor/bundle/ruby/3.1.0/gems/bindex-0.8.1/ext/skiptrace
+make DESTDIR\= clean
+
+current directory: /Users/infinum/Desktop/VSC/facebook-clone/vendor/bundle/ruby/3.1.0/gems/bindex-0.8.1/ext/skiptrace
+make DESTDIR\=
+compiling cruby.c
+linking shared-object skiptrace/internal/cruby.bundle
+ld: warning: -undefined dynamic_lookup may not work with chained fixups
+
+current directory: /Users/infinum/Desktop/VSC/facebook-clone/vendor/bundle/ruby/3.1.0/gems/bindex-0.8.1/ext/skiptrace
+make DESTDIR\= install
+/usr/bin/install -c -m 0755 cruby.bundle ./.gem.20220917-5138-6oj7ud/skiptrace/internal

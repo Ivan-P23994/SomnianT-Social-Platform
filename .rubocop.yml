@@ -43,3 +43,4 @@ AllCops:
     - 'db/migrate/*.rb'
     - 'behaviour/**/*'
     - '_spec/**/*'
+    - vendor/bundle/**/*

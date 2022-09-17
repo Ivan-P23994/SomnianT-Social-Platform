@@ -1,0 +1,16 @@
+current directory: /Users/infinum/Desktop/VSC/facebook-clone/vendor/bundle/ruby/3.1.0/gems/bootsnap-1.13.0/ext/bootsnap
+/Users/infinum/.rbenv/versions/3.1.2/bin/ruby -I /Users/infinum/.rbenv/versions/3.1.2/lib/ruby/3.1.0 -r ./siteconf20220917-5138-a8x5ku.rb extconf.rb
+creating Makefile
+
+current directory: /Users/infinum/Desktop/VSC/facebook-clone/vendor/bundle/ruby/3.1.0/gems/bootsnap-1.13.0/ext/bootsnap
+make DESTDIR\= clean
+
+current directory: /Users/infinum/Desktop/VSC/facebook-clone/vendor/bundle/ruby/3.1.0/gems/bootsnap-1.13.0/ext/bootsnap
+make DESTDIR\=
+compiling bootsnap.c
+linking shared-object bootsnap/bootsnap.bundle
+ld: warning: -undefined dynamic_lookup may not work with chained fixups
+
+current directory: /Users/infinum/Desktop/VSC/facebook-clone/vendor/bundle/ruby/3.1.0/gems/bootsnap-1.13.0/ext/bootsnap
+make DESTDIR\= install
+/usr/bin/install -c -m 0755 bootsnap.bundle ./.gem.20220917-5138-uf7sfs/bootsnap
