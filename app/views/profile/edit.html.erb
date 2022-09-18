@@ -1,28 +1,43 @@
 
-<div class="flex flex-col items-center justify-center h-80vh">
-  <div class="flex flex-col w-1/3 h-auto border-2">
+<div class="flex flex-col justify-center items-center mx-auto h-auto lg:py-0">
+
     <%= form_with model: @profile do |form|%>
-      <div class="flex flex-row justify-items-stretch w-full space-x-3 [&>*]:border-gray-300 [&>*]:w-1/3 [&>*]:text-xs">
-        <%= select_day(Date.today, :field_name=>"profile_attributes[birth_day]", :prefix => 'user') %>
-        <%= select_month(Date.today, :field_name=>"birth_month", :prefix => 'user[profile_attributes]') %>
-        <%= select_year(Date.today, start_year: 1920, end_year: Date.today.year, :field_name=>"birth_year", :prefix => 'user[profile_attributes]') %>
-      </div>
-
-      <div class="field">
-      <%= form.text_field :gender, class: "bg-gray-50 border border-gray-300 sm:text-sm rounded-lg focus:ring-primary-600 w-full focus:border-primary-600 block p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500", placeholder: "Gender" %>
-      </div>
-
-      <div class="field">
-      <%= form.text_field :birth_place, class: "bg-gray-50 border border-gray-300 sm:text-sm rounded-lg focus:ring-primary-600 w-full focus:border-primary-600 block p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500", placeholder: "Birth Place" %>
-      </div>
-
-      <div class="field">
-      <%= form.text_field :occupation, class: "bg-gray-50 border border-gray-300 sm:text-sm rounded-lg focus:ring-primary-600 w-full focus:border-primary-600 block p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500", placeholder: "Occupation" %>
-      </div>
-
-      <div class="flex flex-row justify-center">
-        <%= form.submit "Update", class: "mx-4 text-white bg-gradient-to-r from-blue-500 via-blue-600 to-blue-700 hover:bg-gradient-to-br font-medium rounded-lg text-sm px-5 py-2.5 text-center" %>
+      <div class="flex flex-col w-30vw space-y-4 mt-32 p-8 drop-shadow-lg bg-white rounded-xl border-2">
+        <%= image_tag "cat.jpeg", class: "flex flex-row drop-shadow-xl rounded-full h-32 w-32 absolute -top-16 self-center" %>
+        <label for="birthday" class="block text-sm font-medium text-gray-900 dark:text-gray-300 pt-8">Birthday</label>
+        <div class="flex flex-row justify-items-stretch w-full space-x-3 [&>*]:border-gray-300 [&>*]:w-1/3 [&>*]:text-xs">
+          <%= select_day(Date.today, :field_name=>"profile_attributes[birth_day]", :prefix => 'user') %>
+          <%= select_month(Date.today, :field_name=>"birth_month", :prefix => 'user[profile_attributes]') %>
+          <%= select_year(Date.today, start_year: 1920, end_year: Date.today.year, :field_name=>"birth_year", :prefix => 'user[profile_attributes]') %>
+        </div>
+        <div class="field">
+          <label for="gender" class="block mb-2 text-sm font-medium text-gray-900 dark:text-gray-300">Gender</label>
+            <div class="flex flex-row justify-items-stretch w-full space-x-3 [&>*]:w-1/3 [&>*]:text-xs">
+              <div class="flex flex-row justify-between items-center p-2 border-gray-300 h-9 border">
+                <%= label_tag(:gender, "Female") %>
+                <%= radio_button_tag("user[profile_attributes][gender]", "female") %>
+              </div>
+              <div class="flex flex-row justify-between items-center p-2 border-gray-300 h-9 border">
+                <%= label_tag(:gender, "Male") %>
+                <%= radio_button_tag("user[profile_attributes][gender]", "male") %>
+              </div>
+              <div class="flex flex-row justify-between items-center p-2 border-gray-300 h-9 border">
+                <%= label_tag(:gender, "Other") %>
+                <%= radio_button_tag("user[profile_attributes][gender]", "other") %>
+              </div>
+            </div>
+        </div>
+        <div class="field">
+          <label for="birth_place" class="block mb-2 text-sm font-medium text-gray-900 dark:text-gray-300">Birth Place</label>
+          <%= form.text_field :birth_place, class: "bg-gray-50 border border-gray-300 sm:text-sm rounded-lg focus:ring-primary-600 w-full focus:border-primary-600 block p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500", placeholder: "Birth place" %>
+        </div>
+        <div class="field">
+          <label for="occupation" class="block mb-2 text-sm font-medium text-gray-900 dark:text-gray-300">Occupation</label>
+          <%= form.text_field :occupation, class: "bg-gray-50 border border-gray-300 sm:text-sm rounded-lg focus:ring-primary-600 w-full focus:border-primary-600 block p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500", placeholder: "Occupation" %>
+        </div>
+        <div class="flex flex-row justify-center">
+          <%= form.submit "Update", class: "mx-4 text-white bg-gradient-to-r from-blue-500 via-blue-600 to-blue-700 hover:bg-gradient-to-br font-medium rounded-lg text-sm px-5 py-2.5 text-center" %>
+        </div>
       </div>
     <% end %>
-  </div>
 </div>

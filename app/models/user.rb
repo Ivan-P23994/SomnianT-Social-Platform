@@ -43,7 +43,7 @@ class User < ApplicationRecord
                        friendships.receiver_id = :user_id ', user_id: user.id)
                      }, class_name: 'Friendship'
 
-  validates :first_name, presence: true,length: 3..20
+  validates :first_name, presence: true, length: 3..20
   validates :last_name, presence: true, length: 3..20
   validates :email, presence: true,
                     uniqueness: { case_sensitive: false },
