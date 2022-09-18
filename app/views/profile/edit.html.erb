@@ -1,13 +1,28 @@
 
-  <%= form_with model: @profile do |form|%>
-    <div class="flex flex-row justify-items-stretch w-full space-x-3 [&>*]:border-gray-300 [&>*]:w-1/3 [&>*]:text-xs">
-      <%= select_day(Date.today, :field_name=>"profile_attributes[birth_day]", :prefix => 'user') %>
-      <%= select_month(Date.today, :field_name=>"birth_month", :prefix => 'user[profile_attributes]') %>
-      <%= select_year(Date.today, start_year: 1920, end_year: Date.today.year, :field_name=>"birth_year", :prefix => 'user[profile_attributes]') %>
-    </div>
-    
-    <%= form.text_field :gender, class: "bg-gray-50 border border-gray-300 sm:text-sm rounded-lg focus:ring-primary-600 w-full focus:border-primary-600 block p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500", placeholder: "Gender" %>
-    <%= form.text_field :occupation, class: "bg-gray-50 border border-gray-300 sm:text-sm rounded-lg focus:ring-primary-600 w-full focus:border-primary-600 block p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500", placeholder: "Occupation" %>
-  <% end %>
+<div class="flex flex-col items-center justify-center h-80vh">
+  <div class="flex flex-col w-1/3 h-auto border-2">
+    <%= form_with model: @profile do |form|%>
+      <div class="flex flex-row justify-items-stretch w-full space-x-3 [&>*]:border-gray-300 [&>*]:w-1/3 [&>*]:text-xs">
+        <%= select_day(Date.today, :field_name=>"profile_attributes[birth_day]", :prefix => 'user') %>
+        <%= select_month(Date.today, :field_name=>"birth_month", :prefix => 'user[profile_attributes]') %>
+        <%= select_year(Date.today, start_year: 1920, end_year: Date.today.year, :field_name=>"birth_year", :prefix => 'user[profile_attributes]') %>
+      </div>
 
+      <div class="field">
+      <%= form.text_field :gender, class: "bg-gray-50 border border-gray-300 sm:text-sm rounded-lg focus:ring-primary-600 w-full focus:border-primary-600 block p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500", placeholder: "Gender" %>
+      </div>
+
+      <div class="field">
+      <%= form.text_field :birth_place, class: "bg-gray-50 border border-gray-300 sm:text-sm rounded-lg focus:ring-primary-600 w-full focus:border-primary-600 block p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500", placeholder: "Birth Place" %>
+      </div>
+
+      <div class="field">
+      <%= form.text_field :occupation, class: "bg-gray-50 border border-gray-300 sm:text-sm rounded-lg focus:ring-primary-600 w-full focus:border-primary-600 block p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500", placeholder: "Occupation" %>
+      </div>
+
+      <div class="flex flex-row justify-center">
+        <%= form.submit "Update", class: "mx-4 text-white bg-gradient-to-r from-blue-500 via-blue-600 to-blue-700 hover:bg-gradient-to-br font-medium rounded-lg text-sm px-5 py-2.5 text-center" %>
+      </div>
+    <% end %>
+  </div>
 </div>

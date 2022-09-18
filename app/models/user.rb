@@ -50,6 +50,6 @@ class User < ApplicationRecord
                     format: { with: VALID_EMAIL_REGEX, message: 'Email invalid' }
 
   def full_name
-    "#{first_name.capitalize} #{last_name.capitalize}" 
+    "#{first_name.capitalize} #{last_name.capitalize}"
   end
 end

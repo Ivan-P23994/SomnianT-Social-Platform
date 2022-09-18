@@ -11,10 +11,10 @@ class ProfileController < ApplicationController
   end
 
   def update
-     @profile = current_user.profile
+    @profile = current_user.profile
 
     if @profile.update(profile_params)
-      redirect_to @profile, status: :ok
+      redirect_to action: 'show'
     else
       render json: { errors: profile.errors }, status: :bad_request
     end
