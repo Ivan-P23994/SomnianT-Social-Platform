@@ -2,6 +2,8 @@
 
 require 'faker'
 
+sql_query = "SELECT setval(pg_get_serial_sequence('users', 'id'), coalesce(max(id)+1, 1), false) FROM users"
+
 (1..10).each do |id|
   User.create!(
 # each user is assigned an id from 1-20
@@ -14,3 +16,5 @@ require 'faker'
       password_confirmation: "123456",
   )
 end
+
+ActiveRecord::Base.connection.execute(sql)

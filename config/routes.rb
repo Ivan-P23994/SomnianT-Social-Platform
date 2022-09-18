@@ -2,7 +2,7 @@
 
 Rails.application.routes.draw do
   devise_for :users
-  resources :profile
+  resources :profile, only: [:show, :edit, :update]
 
   root to: 'home#index'
 end

@@ -48,4 +48,8 @@ class User < ApplicationRecord
   validates :email, presence: true,
                     uniqueness: { case_sensitive: false },
                     format: { with: VALID_EMAIL_REGEX, message: 'Email invalid' }
+
+  def full_name
+    "#{first_name.capitalize} #{last_name.capitalize}" 
+  end
 end
