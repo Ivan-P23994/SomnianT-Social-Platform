@@ -15,4 +15,8 @@
 #
 class Profile < ApplicationRecord
   belongs_to :user
+
+  def birthday
+    "#{birth_day} / #{Date::MONTHNAMES[birth_month.to_i]} / #{birth_year}"
+  end
 end
