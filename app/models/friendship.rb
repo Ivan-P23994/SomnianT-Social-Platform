@@ -4,25 +4,33 @@
 #
 # Table name: friendships
 #
-#  id           :bigint           not null, primary key
-#  requestor_id :bigint           not null
-#  receiver_id  :bigint           not null
-#  status       :boolean          default(FALSE)
-#  created_at   :datetime         not null
-#  updated_at   :datetime         not null
+#  id         :bigint           not null, primary key
+#  user_id    :integer
+#  friend_id  :integer
+#  created_at :datetime         not null
+#  updated_at :datetime         not null
 #
 class Friendship < ApplicationRecord
-  validate :no_self_referential_friend_requests
-  validate :request_in_one_direction_only
-  validate :no_requests_to_current_friends, if: -> { requestor }
+  # validate :no_self_referential_friend_requests
+  # validate :request_in_one_direction_only
+  # validate :no_requests_to_current_friends, if: -> { requestor }
 
-  belongs_to :requestor, class_name: 'User'
-  belongs_to :receiver, class_name: 'User'
+  belongs_to :user
+  belongs_to :friend, class_name: 'User'
 
-  scope :friends, -> { where('status =?', true) }
-  scope :not_friends, -> { where('status =?', false) }
+  validates :user_id, :friend_id, presence: true
+  validate :user_is_not_equal_friend
+  validates :user_id, presence: true, uniqueness: { scope: :friend_id }
+
+  def mutual?
+    friend.friends.include?(user)
+  end
 
   private
+
+  def user_is_not_equal_friend
+    errors.add(:friend, "can't be the same as the user") if user == friend
+  end
 
   def no_self_referential_friend_requests
     if requestor_id == receiver_id

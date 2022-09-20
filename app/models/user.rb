@@ -24,30 +24,24 @@ class User < ApplicationRecord
   has_one :profile, dependent: :destroy
   accepts_nested_attributes_for :profile, allow_destroy: true
 
-  has_many :requests_sent, class_name: 'Friendship', foreign_key: 'requestor_id',
-                           inverse_of: 'requestor', dependent: :destroy
-
-  has_many :requests_received, class_name: 'Friendship', foreign_key: 'receiver_id',
-                               inverse_of: 'receiver', dependent: :destroy
-
-  has_many :pending_requests, -> { merge(Friendships.not_friends) },
-           through: :requests_sent, source: :receiver
-
-  has_many :received_requests, -> { merge(Friendships.not_friends) },
-           through: :requests_received, source: :requestor
-
-  has_many :friends, lambda { |user|
-                       unscope(where: :user_id)
-                         .where("status = 'true'")
-                         .where('friendships.requestor_id = :user_id OR
-                       friendships.receiver_id = :user_id ', user_id: user.id)
-                     }, class_name: 'Friendship'
+  has_many :friendships, dependent: :destroy
+  has_many :friends, through: :friendships
+  has_many :received_friendships, class_name: 'Friendship', foreign_key: 'friend_id'
+  has_many :received_friends, through: :received_friendships, source: 'user'
 
   validates :first_name, presence: true, length: 3..20
   validates :last_name, presence: true, length: 3..20
   validates :email, presence: true,
                     uniqueness: { case_sensitive: false },
                     format: { with: VALID_EMAIL_REGEX, message: 'Email invalid' }
+
+  def active_friends
+    friends.select { |friend| friend.friends.include?(self) }
+  end
+
+  def pending_friends
+    friends.reject { |friend| friend.friends.include?(self) }
+  end
 
   def full_name
     "#{first_name.capitalize} #{last_name.capitalize}"
