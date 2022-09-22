@@ -43,7 +43,19 @@ class User < ApplicationRecord
     friends.reject { |friend| friend.friends.include?(self) }
   end
 
+  def discover_filter(current_user)
+    return true if id == current_user.id
+    return true if friends.include?(current_user)
+    return true if current_user.friends.include?(current_user)
+
+    false
+  end
+
   def full_name
     "#{first_name.capitalize} #{last_name.capitalize}"
+  end
+
+  def befriend(recepient_id)
+    Friendship.create(user_id: id, friend_id: recepient_id)
   end
 end
