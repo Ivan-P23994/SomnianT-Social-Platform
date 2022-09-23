@@ -3,9 +3,10 @@
 Rails.application.routes.draw do
   devise_for :users
 
-  get 'friendship/index'
   get 'friendship/discover'
   get 'friendship/befriend'
+  get 'friendship/show'
+  get 'friendship/request_response'
 
   resources :profile, only: [:show, :edit, :update]
 

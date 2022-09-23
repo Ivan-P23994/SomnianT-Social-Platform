@@ -1,7 +1,4 @@
 class FriendshipController < ApplicationController
-  def index
-  end
-
   def discover
     @users = current_user.not_friends?
   end
@@ -11,7 +8,16 @@ class FriendshipController < ApplicationController
     redirect_to action: 'discover'
   end
 
-  def friend_requests
-    @fr_requests = current_user.received_friendships
+  def show
+    @fr_requests = current_user.received_friendships.reject(&:mutual?)
   end
+
+  def request_response
+    if params[:accept]
+      current_user.befriend(params[:friend])
+    else
+      Friendship.find(params[:request]).delete
+    end
+    redirect_to 'show'
+  end 
 end

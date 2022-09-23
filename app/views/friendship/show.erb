@@ -1,0 +1,9 @@
+<div class = "flex flex-col w-full h-full items-center border-2">
+  <% if current_user.received_friendships.reject(&:mutual?).count == 0 %>
+    <p class="text-xl">There are no friend requests at the moment.</p>
+  <% else %>
+    <% @fr_requests.each do |request|%>
+      <%= render 'friendship/cards/friend_request_card', :r => request %>
+    <% end %>
+  <% end %>
+</div>
