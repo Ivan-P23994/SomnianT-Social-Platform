@@ -4,7 +4,7 @@ require 'faker'
 
 sql_query = "SELECT setval(pg_get_serial_sequence('users', 'id'), coalesce(max(id)+1, 1), false) FROM users"
 
-(1..10).each do |id|
+(1..30).each do |id|
   User.create!(
       id: id, 
       first_name: Faker::Name.first_name,

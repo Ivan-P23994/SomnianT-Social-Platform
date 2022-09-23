@@ -3,11 +3,15 @@ class FriendshipController < ApplicationController
   end
 
   def discover
-    @users = User.all.where.not(id: current_user.id).reject { |friend| friend.discover_filter(current_user) }
+    @users = current_user.not_friends?
   end
 
   def befriend
-    current_user.befriend(params[:id])
-    redirect_back
+    current_user.befriend(params[:friend_id])
+    redirect_to action: 'discover'
+  end
+
+  def friend_requests
+    @fr_requests = current_user.received_friendships
   end
 end

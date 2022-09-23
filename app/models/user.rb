@@ -43,12 +43,9 @@ class User < ApplicationRecord
     friends.reject { |friend| friend.friends.include?(self) }
   end
 
-  def discover_filter(current_user)
-    return true if id == current_user.id
-    return true if friends.include?(current_user)
-    return true if current_user.friends.include?(current_user)
-
-    false
+  def not_friends?
+    friends_arr = friendships.map(&:friend_id)
+    User.where.not(id: friends_arr << id)
   end
 
   def full_name
