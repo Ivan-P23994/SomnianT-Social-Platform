@@ -1,0 +1,17 @@
+<div class="flex flex-col space-y-2">
+  <h1 class = "place-self-center">Contacts</h1>
+  <% current_user.active_friends.each do |u|%>
+    <div class="flex flex-row items-end">
+      <%= link_to  do %>
+        <button type="button" class="inline-flex relative items-end w-8 h-8 rounded-full">
+          <%= image_tag 'cat.jpeg', class:'w-8 h-8 absolute -bottom-0.5 rounded-full'%>
+          <span class="sr-only">Contact</span>
+          <div class="inline-flex absolute -bottom-0 -right-0 justify-center items-center w-2 h-2 text-xs font-bold text-white bg-green-500 rounded-full border-white dark:border-gray-900"></div>
+        </button>
+      <% end %>
+      <span class = "flex flex-row w-2/3 pl-4"><%= u.full_name%></span>
+    </div>
+  <% end %>
+</div>
+
+

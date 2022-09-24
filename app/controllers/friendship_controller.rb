@@ -18,6 +18,6 @@ class FriendshipController < ApplicationController
     else
       Friendship.find(params[:request]).delete
     end
-    redirect_to 'show'
+    redirect_to action: 'show'
   end
 end
