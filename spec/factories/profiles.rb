@@ -15,11 +15,12 @@
 #
 FactoryBot.define do
   factory :profile do
+    association :user
     sequence(:birth_year) { |n| DateTime.now - 10 + n.year }
     birth_month { DateTime.now.month }
     birth_day { DateTime.now.day }
-    gender { 'female' }
-    occupation { 'plumber' }
-    birth_place { 'planet-x' }
+    gender { Faker::Gender.binary_type }
+    occupation { Faker::Job.title }
+    birth_place { Faker::Address.city }
   end
 end
