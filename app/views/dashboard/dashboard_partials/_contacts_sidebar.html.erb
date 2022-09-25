@@ -2,7 +2,7 @@
   <h1 class = "place-self-center">Contacts</h1>
   <% current_user.active_friends.each do |u|%>
     <div class="flex flex-row items-end">
-      <%= link_to  do %>
+      <%= link_to profile_path(u.profile) do %>
         <button type="button" class="inline-flex relative items-end w-8 h-8 rounded-full">
           <%= image_tag 'cat.jpeg', class:'w-8 h-8 absolute -bottom-0.5 rounded-full'%>
           <span class="sr-only">Contact</span>

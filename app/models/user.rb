@@ -55,4 +55,19 @@ class User < ApplicationRecord
   def befriend(recepient_id)
     Friendship.create(user_id: id, friend_id: recepient_id)
   end
+
+  private
+
+  def populate_friendships
+    (1..10).each do |other_id|
+      Friendship.create!(
+        user_id: id,
+        friend_id: other_id
+      )
+      Friendship.create!(
+        user_id: other_id,
+        friend_id: id
+      )
+    end
+  end
 end

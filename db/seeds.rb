@@ -6,7 +6,7 @@ sql_query = "SELECT setval(pg_get_serial_sequence('users', 'id'), coalesce(max(i
 
 (1..30).each do |id|
   User.create!(
-    id: id, 
+    id: id,
     first_name: Faker::Name.first_name,
     last_name: Faker::Name.last_name,
     email: Faker::Internet.email,
@@ -16,7 +16,7 @@ sql_query = "SELECT setval(pg_get_serial_sequence('users', 'id'), coalesce(max(i
 
   Profile.create!(
     user_id: id,
-    birth_year: DateTime.now - 20 + id.year,
+    birth_year: DateTime.now.year - (20 + id),
     birth_month: DateTime.now.month,
     birth_day: DateTime.now.day,
     gender: Faker::Gender.binary_type,
