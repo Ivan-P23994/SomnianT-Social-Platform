@@ -24,6 +24,10 @@ class User < ApplicationRecord
   has_one :profile, dependent: :destroy
   accepts_nested_attributes_for :profile, allow_destroy: true
 
+  has_many :posts, dependent: :destroy
+  has_many :comments, dependent: :destroy
+  has_many :likes, dependent: :destroy
+
   has_many :friendships, dependent: :destroy
   has_many :friends, through: :friendships
   has_many :received_friendships, class_name: 'Friendship', foreign_key: 'friend_id'
@@ -34,6 +38,10 @@ class User < ApplicationRecord
   validates :email, presence: true,
                     uniqueness: { case_sensitive: false },
                     format: { with: VALID_EMAIL_REGEX, message: 'Email invalid' }
+
+  def full_name
+    @full_name ||= "#{first_name.capitalize} #{last_name.capitalize}"
+  end
 
   def active_friends
     friends.select { |friend| friend.friends.include?(self) }
@@ -48,17 +56,13 @@ class User < ApplicationRecord
     User.where.not(id: friends_arr << id)
   end
 
-  def full_name
-    "#{first_name.capitalize} #{last_name.capitalize}"
-  end
-
   def befriend(recepient_id)
     Friendship.create(user_id: id, friend_id: recepient_id)
   end
 
   private
 
-  def populate_friendships
+  def populate_mutual_friendships
     (1..10).each do |other_id|
       Friendship.create!(
         user_id: id,
