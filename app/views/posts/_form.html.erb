@@ -1,11 +1,10 @@
-<%= form_with(model: post, class: "contents") do |form| %>
-  <% if post.errors.any? %>
-    <div id="error_explanation" class="bg-red-50 text-red-500 px-3 py-2 font-medium rounded-lg mt-3">
-      <h2><%= pluralize(post.errors.count, "error") %> prohibited this post from being saved:</h2>
-
+<%= form_with(model: @post, id: "post-form") do |form| %>
+<form data-action="turbo:submit-end@document->modal#submitEnd">
+  <% if @post.errors.any? %>
+    <div class="p-4 border border-red-600">
       <ul>
-        <% post.errors.each do |error| %>
-          <li><%= error.full_message %></li>
+        <% @post.errors.full_messages.each do |message| %>
+          <li><%= message %></li>
         <% end %>
       </ul>
     </div>
@@ -19,9 +18,13 @@
   <div class="my-5">
     <%= form.label :body %>
     <%= form.text_field :body, class: "block shadow rounded-md border border-gray-200 outline-none px-3 py-2 mt-2 w-full" %>
+    <%= form.hidden_field :author_id, value: current_user.id %>
   </div>
 
-  <div class="inline">
-    <%= form.submit class: "rounded-lg py-3 px-5 bg-blue-600 text-white inline-block font-medium cursor-pointer" %>
+  <div class="rounded-b mt-6 px-4 sm:grid sm:grid-cols-2 sm:gap-3 sm:grid-flow-row-dense">
+    <%= form.submit "Sign up", class: "text-white bg-gradient-to-r from-green-500 via-green-600 to-green-700 w-20vw hover:bg-gradient-to-br font-medium rounded-lg text-m px-5 py-2.5 text-center mb-6 mt-6" %>
+    <button data-action="click->modal#close" class="mt-3 w-full sm:mt-0 sm:col-start-1 mb-4 bg-gray-100 hover:bg-gray-200 rounded-sm px-4 py-2">
+      Cancel
+    </button>
   </div>
 <% end %>

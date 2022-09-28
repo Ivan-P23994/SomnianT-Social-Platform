@@ -8,13 +8,16 @@
     <%= csp_meta_tag %>
     <%= stylesheet_link_tag "tailwind", "inter-font", "data-turbo-track": "reload" %>
   
+
+  
     <%= stylesheet_link_tag "application", "data-turbo-track": "reload" %>
     <%= javascript_importmap_tags %>
   </head>
 
-  <body class="bg-slate-100 max-h-screen max-w-screen">
+  <body class="bg-slate-100 max-h-screen max-w-screen" data-controller="modal">
     <%= render 'application_partials/navbar' %>
     <%= render 'application_partials/flash_messages' %>  
-      <%= yield %>
+    <%= yield %>
+    <%= render "shared/modal" %>
   </body>
 </html>
