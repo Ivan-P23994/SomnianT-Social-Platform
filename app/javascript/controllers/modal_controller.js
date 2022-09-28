@@ -18,7 +18,7 @@ static targets = ['container'];
 
   submitEnd(e) {
     if (e.detail.success) {
-      this.hideModal()
+      this.close()
     }
   }
 
@@ -27,14 +27,6 @@ static targets = ['container'];
     this.containerTarget.classList.remove(this.toggleClass);
     document.body.insertAdjacentHTML('beforeend', this.backgroundHtml);
     this.background = document.querySelector(`#${this.backgroundId}`);
-  }
-
-  close(event) {
-    if (typeof event !== 'undefined') {
-      event.preventDefault()
-    }
-    this.containerTarget.classList.add(this.toggleClass);
-    if (this.background) { this.background.remove() }
   }
 
   _backgroundHTML() {
