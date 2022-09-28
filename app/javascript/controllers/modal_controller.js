@@ -29,6 +29,14 @@ static targets = ['container'];
     this.background = document.querySelector(`#${this.backgroundId}`);
   }
 
+  close(event) {
+    if (typeof event !== 'undefined') {
+      event.preventDefault()
+    }
+    this.containerTarget.classList.add(this.toggleClass);
+    if (this.background) { this.background.remove() }
+  }
+
   _backgroundHTML() {
     return `<div id="${this.backgroundId}" class="fixed top-0 left-0 w-full h-full" style="background-color: rgba(0, 0, 0, 0.7); z-index: 9998;"></div>`;
   }
