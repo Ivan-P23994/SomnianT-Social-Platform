@@ -13,5 +13,5 @@ class Like < ApplicationRecord
   belongs_to :user
   belongs_to :liked_on, polymorphic: true
 
-  validates :user, presence: true
+  validates :user_id, presence: true, uniqueness: { scope: [ :liked_on_type, :liked_on_id ] }
 end

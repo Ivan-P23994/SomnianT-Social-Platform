@@ -1,0 +1,21 @@
+<div id="<%= "#{dom_id(post)} private_likes" %>", class="flex flex-col h-full text-sm" >
+  <% like_text = like_status ? 'Unlike' : 'Like' %>
+  <% like = Like.find_by(liked_on_id: post.id, user_id: current_user.id)  %>
+  <div class="flex flex-row justify-between">
+    <div class="inline-flex items-center">
+      <%= image_tag 'like.png', class:"w-5 h-5" %>
+      <span class="ml-3"><%= post.likes.count %></span>
+    </div>
+    <span class="ml-3"><%= pluralize(post.comments.count, "Comment") %></span>
+  </div>
+  <div class="flex flex-row justify-around mt-5 py-1 border border-gray-300 border-x-0 text-sm">
+    <div class="flex flex-row items-center justify-center w-1/2 rounded-lg hover:bg-gray-100">
+      <%= image_tag 'like-button.png', class:"w-5 h-5 mr-3" %>
+      <%= button_to like_text, like_post_path(id: post.id) %>
+    </div>
+    <div class="flex flex-row items-center justify-center w-1/2 h-8 rounded-lg hover:bg-gray-100">
+      <%= image_tag 'comments.png', class:"w-5 h-5" %>
+      <span class="ml-3">Comment</span>
+    </div>
+  </div>
+</div>

@@ -25,8 +25,10 @@ class User < ApplicationRecord
   accepts_nested_attributes_for :profile, allow_destroy: true
 
   has_many :posts, dependent: :destroy, foreign_key: :author_id
-  has_many :comments, dependent: :destroy, foreign_key: :author_id
   has_many :likes, dependent: :destroy
+  has_many :comments, dependent: :destroy, foreign_key: :author_id
+  has_many :liked_posts, through: :likes, source: :liked_on, source_type: 'Post'
+  has_many :liked_comments, through: :likes, source: :liked_on, source_type: 'Comment'
 
   has_many :friendships, dependent: :destroy
   has_many :friends, through: :friendships
@@ -58,6 +60,10 @@ class User < ApplicationRecord
 
   def befriend(recepient_id)
     Friendship.create(user_id: id, friend_id: recepient_id)
+  end
+
+  def liked?(post)
+    liked_posts.include?(post)
   end
 
   private

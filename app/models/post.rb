@@ -15,4 +15,8 @@ class Post < ApplicationRecord
   has_many :likes, as: :liked_on, dependent: :destroy
 
   validates :author, :title, :body, presence: true
+
+  def liked?(id)
+    return true if likes.where(user_id: id).count > 1
+  end
 end
