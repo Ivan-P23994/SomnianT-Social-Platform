@@ -65,6 +65,11 @@ class User < ApplicationRecord
     liked_posts.include?(post)
   end
 
+  def dashboard_posts
+    arr = friends.ids
+    Post.where('author_id IN (?)', arr << id)
+  end
+
   private
 
   def populate_mutual_friendships
