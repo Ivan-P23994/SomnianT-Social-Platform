@@ -54,8 +54,7 @@ class User < ApplicationRecord
   end
 
   def not_friends?
-    friends_arr = friendships.map(&:friend_id)
-    User.where.not(id: friends_arr << id)
+    User.where.not(id: friends.ids << id)
   end
 
   def befriend(recepient_id)
