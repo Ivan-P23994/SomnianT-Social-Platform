@@ -49,23 +49,24 @@ class CommentsController < ApplicationController
 
   # DELETE /comments/1 or /comments/1.json
   def destroy
+    @post = Post.find(@comment.post.id)
     @comment.destroy
 
     respond_to do |format|
-      format.html { redirect_to comments_url, notice: 'Comment was successfully destroyed.' }
-      format.json { head :no_content }
-      format.turbo_stream
+      format.turbo_stream do
+        render turbo_stream: private_stream
+      end
     end
   end
 
   private
 
   def private_stream
-    private_target = "#{helpers.dom_id(@post)} private_likes"
+    private_target = "#{helpers.dom_id(@post)} private_comment_count"
     turbo_stream.replace(private_target,
                          partial: 'shared/like_button',
                          locals: {
-                           comment: @comment
+                           post: @post
                          })
   end
 

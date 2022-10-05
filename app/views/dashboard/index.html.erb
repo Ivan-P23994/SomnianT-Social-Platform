@@ -9,8 +9,10 @@
   </div>
   <%# Friend display %>
   <div class="hidden lg:flex flex-col h-80vh w-1/5 space-y-8 space-x-8  mt-8">
-    <%= render 'dashboard/dashboard_partials/friends_sidebar' %>
-    <%= render 'dashboard/dashboard_partials/contacts_sidebar' %>
+    <div class="fixed">
+      <%= render 'dashboard/dashboard_partials/friends_sidebar' %>
+      <%= render 'dashboard/dashboard_partials/contacts_sidebar' %>
+    </div>
   </div>
 </div>
 <%= render 'application_partials/footer' %>

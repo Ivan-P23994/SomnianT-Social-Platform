@@ -6,7 +6,9 @@
       <%= image_tag 'like.png', class:"w-5 h-5" %>
       <span class="ml-3"><%= post.likes.count %></span>
     </div>
+    <div id="<%= "#{dom_id(post)} private_comment_count" %>">
     <span class="ml-3"><%= pluralize(post.comments.count, "Comment") %></span>
+    </div>
   </div>
   <div class="flex flex-row justify-around mt-5 py-1 border border-gray-300 border-x-0 text-sm">
     <div class="flex flex-row items-center justify-center w-1/2 rounded-lg hover:bg-gray-100">
@@ -15,7 +17,7 @@
     </div>
     <div class="flex flex-row items-center justify-center w-1/2 h-8 rounded-lg hover:bg-gray-100">
       <%= image_tag 'comments.png', class:"w-5 h-5 mr-4" %>
-      <%= link_to "Comment", new_comment_path(post_id: post.id), data: { turbo_frame: "new_comment" } %>
+      <%= link_to "Comment", new_comment_path(post_id: post.id), data: { turbo_frame: "new_comment_#{post.id}" } %>
     </div>
   </div>
 </div>
