@@ -1,27 +1,18 @@
-<%= form_with(model: comment, class: "contents") do |form| %>
-  <% if comment.errors.any? %>
-    <div id="error_explanation" class="bg-red-50 text-red-500 px-3 py-2 font-medium rounded-lg mt-3">
-      <h2><%= pluralize(comment.errors.count, "error") %> prohibited this comment from being saved:</h2>
 
-      <ul>
-        <% comment.errors.each do |error| %>
-          <li><%= error.full_message %></li>
-        <% end %>
-      </ul>
-    </div>
-  <% end %>
+<%= form_with(model: Comment.new, url: comments_path, class: "contents") do |form| %>
 
-  <div class="my-5">
-    <%= form.label :author %>
-    <%= form.text_field :author, class: "block shadow rounded-md border border-gray-200 outline-none px-3 py-2 mt-2 w-full" %>
+  <div class="flex flex-row h-10 w-full items-end ">
+
+    <%= link_to profile_path(current_user.profile) do %>
+      <%= image_tag 'cat.jpeg', class: 'w-8 h-8 rounded-full mr-3' %>
+    <% end %>
+
+    
+    <%= form.text_field :body, placeholder:"Write a public comment...", class: "flex flex-row w-full h-8 items-center pl-4 rounded-xl text-xs bg-gray-50 hover:bg-gray-100 border border-gray-300 hover:border-gray-400" %>
+    <%= form.hidden_field :author_id, value: current_user.id %>
+    <%= form.hidden_field :post_id, value:  @post_id %>
+
   </div>
+</div>
 
-  <div class="my-5">
-    <%= form.label :body %>
-    <%= form.text_field :body, class: "block shadow rounded-md border border-gray-200 outline-none px-3 py-2 mt-2 w-full" %>
-  </div>
-
-  <div class="inline">
-    <%= form.submit class: "rounded-lg py-3 px-5 bg-blue-600 text-white inline-block font-medium cursor-pointer" %>
-  </div>
 <% end %>

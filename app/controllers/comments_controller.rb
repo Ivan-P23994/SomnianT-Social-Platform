@@ -12,6 +12,7 @@ class CommentsController < ApplicationController
   # GET /comments/new
   def new
     @comment = Comment.new
+    @post_id = params[:post_id]
   end
 
   # GET /comments/1/edit
@@ -21,16 +22,13 @@ class CommentsController < ApplicationController
   def create
     @comment = Comment.new(comment_params)
 
-    respond_to do |format|
-      if @comment.save
-        format.html do
-          redirect_to comment_url(@comment), notice: 'Comment was successfully created.'
-        end
-        format.json { render :show, status: :created, location: @comment }
-      else
-        format.html { render :new, status: :unprocessable_entity }
-        format.json { render json: @comment.errors, status: :unprocessable_entity }
+    if @comment.save
+      respond_to do |format|
+        format.html { redirect_to comments_path, notice: 'Comment was successfully created.' }
+        format.turbo_stream
       end
+    else
+      render :new, status: :unprocessable_entity
     end
   end
 
@@ -56,10 +54,20 @@ class CommentsController < ApplicationController
     respond_to do |format|
       format.html { redirect_to comments_url, notice: 'Comment was successfully destroyed.' }
       format.json { head :no_content }
+      format.turbo_stream
     end
   end
 
   private
+
+  def private_stream
+    private_target = "#{helpers.dom_id(@post)} private_likes"
+    turbo_stream.replace(private_target,
+                         partial: 'shared/like_button',
+                         locals: {
+                           comment: @comment
+                         })
+  end
 
   # Use callbacks to share common setup or constraints between actions.
   def set_comment
@@ -68,6 +76,6 @@ class CommentsController < ApplicationController
 
   # Only allow a list of trusted parameters through.
   def comment_params
-    params.require(:comment).permit(:author, :body)
+    params.require(:comment).permit(:author_id, :post_id, :body)
   end
 end

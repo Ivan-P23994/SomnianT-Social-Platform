@@ -1,17 +1,22 @@
-<div id="<%= dom_id comment %>">
-  <p class="my-5">
-    <strong class="block font-medium mb-1">Author:</strong>
-    <%= comment.author %>
-  </p>
 
-  <p class="my-5">
-    <strong class="block font-medium mb-1">Body:</strong>
-    <%= comment.body %>
-  </p>
+<%= turbo_frame_tag "comment_#{comment.id}" do%>
+<div id="<%= dom_id comment %>"<%= %> class="flex flex-row w-full h-auto justify-start">
 
-  <% if action_name != "show" %>
-    <%= link_to "Show this comment", comment, class: "rounded-lg py-3 px-5 bg-gray-100 inline-block font-medium" %>
-    <%= link_to 'Edit this comment', edit_comment_path(comment), class: "rounded-lg py-3 ml-2 px-5 bg-gray-100 inline-block font-medium" %>
-    <hr class="mt-6">
+  <%= link_to profile_path(comment.author.profile), class:"flex flex-col mr-2" do %>
+    <%= image_tag 'cat.jpeg', class: 'w-10 h-10 rounded-full align-self-end' %>
+  <% end %>
+
+  <div class="flex flex-col w-full justify-start">
+    <p class="text-xs mb-2">
+      <%= comment.author.full_name %>
+    </p>
+    <p class= "flex flex-row w-full h-auto items-center rounded-2xl text-xs bg-gray-50 p-2 hover:bg-gray-100 border border-gray-300 hover:border-gray-400">
+      <%= comment.body %>
+    </p>
+  </div>
+  <% if current_user.id == comment.author.id %>
+    <%= link_to 'Edit', edit_comment_path(comment), class: "rounded-lg h-10 w-15 bg-gray-100 inline-block font-medium" %>
+    <%= button_to 'Delete', comment_path(comment), class: "rounded-lg h-10 w-15 bg-gray-100 inline-block font-medium", method: :delete %>
   <% end %>
 </div>
+<% end %>

@@ -1,0 +1,3 @@
+<%= turbo_stream.prepend "comment-list", partial: "comments/comment", locals: { comment: @comment } %>
+<%= turbo_stream.update 'new_comment' "" %>
+

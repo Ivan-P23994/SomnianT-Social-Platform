@@ -42,7 +42,7 @@ class User < ApplicationRecord
                     format: { with: VALID_EMAIL_REGEX, message: 'Email is invalid' }
 
   def full_name
-    @full_name ||= User.select("(first_name || ' ' || last_name) as name").where(id: id).first.name
+    @full_name ||= User.select("(first_name || ' ' || last_name) as name").where(id:).first.name
   end
 
   def active_friends

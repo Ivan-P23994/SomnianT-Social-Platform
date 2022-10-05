@@ -1,15 +1,29 @@
-<div id="<%= dom_id post %>", class ="flex flex-col w-2/3 h-auto l-full rounded-lg bg-white mt-4 py-4 px-6 min-w-[500px]" >
+
+<div id="<%= dom_id post %>", class ="flex flex-col w-2/3 rounded-lg bg-white mt-4 py-4 px-6 min-w-[500px] rounded-b-none">
   <div class="flex flex-row h-16 w-full space-x-4">
     <%= link_to profile_path(post.author.profile.id) do %>
       <%= image_tag 'cat.jpeg', class: 'w-12 h-12 rounded-lg' %>
     <% end %>
+
     <div class="flex flex-col">
       <span class = ""><%= post.title %></span>
       <span class = "text-xs"><%= post.author.full_name %></span>
     </div>
   </div>
-  <p class="my-5 text-sm text-justify">
+
+  <div class="my-5 text-sm text-justify">
     <%= post.body %>
-  </p>
-    <%= render 'shared/like_button', post: post, like_status: current_user.liked?(post) %>
+  </div>
+
+  <%= render 'shared/like_button', post: post, like_status: current_user.liked?(post) %>
+
+
+  <div id="comment-list" class="flex flex-col w-full rounded-lg bg-white gap-y-4 py-4 min-w-[500px] rounded-t-none">
+      <% post.comments.order(id: :desc).each do |comment| %>
+        <%= render "comments/comment", comment: comment %>
+      <% end %>
+  </div>
+
+  <%= turbo_frame_tag "new_comment" do %>
+  <% end %>
 </div>

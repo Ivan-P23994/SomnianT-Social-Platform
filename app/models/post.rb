@@ -19,5 +19,4 @@ class Post < ApplicationRecord
   def liked?(id)
     return true if likes.where(user_id: id).count > 1
   end
-
 end
