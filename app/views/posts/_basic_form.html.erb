@@ -1,0 +1,23 @@
+<%= form_with(model: @post, id: "post-form" ) do |form| %>
+  <% if @post.errors.any? %>
+    <div class="p-4 border border-red-600">
+      <ul>
+        <% @post.errors.full_messages.each do |message| %>
+          <li><%= message %></li>
+        <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div class="my-5 px-4">
+    <%= form.label :title %>
+    <%= form.text_field :title, class: "block shadow rounded-md border border-gray-200 outline-none px-3 py-2 mt-2 w-full" %>
+  </div>
+
+  <div class="my-5 px-4">
+    <%= form.label :body %>
+    <%= form.text_area :body, class: "block shadow rounded-md border border-gray-200 outline-none px-3 py-2 mt-2 h-48 w-full" %>
+    <%= form.hidden_field :author_id, value: current_user.id %>
+  </div>
+
+<% end %>
