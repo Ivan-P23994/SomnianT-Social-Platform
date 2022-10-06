@@ -8,7 +8,7 @@
     <% end %>
 
     
-    <%= form.text_field :body, placeholder:"Write a public comment...", class: "flex flex-row w-full h-8 items-center pl-4 rounded-xl text-xs bg-gray-50 hover:bg-gray-100 border border-gray-300 hover:border-gray-400" %>
+    <%= form.text_field :body, placeholder:"Write a public comment...", class: "flex flex-row w-full h-auto items-center pl-4 rounded-xl text-xs bg-gray-50 hover:bg-gray-100 border border-gray-300 hover:border-gray-400" %>
     <%= form.hidden_field :author_id, value: current_user.id %>
     <%= form.hidden_field :post_id, value:  @post_id %>
 

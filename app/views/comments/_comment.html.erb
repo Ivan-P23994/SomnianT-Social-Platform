@@ -10,7 +10,7 @@
     <p class="text-xs mb-2">
       <%= comment.author.full_name %>
     </p>
-    <p class= "flex flex-row w-full h-auto items-center rounded-2xl text-sm bg-gray-50 p-2 hover:bg-gray-100 border border-gray-300 hover:border-gray-400">
+    <p class= "flex flex-row w-full h-auto items-center rounded-2xl text-sm break-normal bg-gray-50 p-2 hover:bg-gray-100 border border-gray-300 hover:border-gray-400b">
       <%= comment.body %>
       <%= render 'shared/comment_like', comment: comment, like_status: current_user.liked_comment?(comment) %>
     </p>
