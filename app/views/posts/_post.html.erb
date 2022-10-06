@@ -1,31 +1,32 @@
 
 <div id="<%= dom_id post %>", class ="flex flex-col w-2/3 rounded-lg bg-white mt-4 py-4 px-6 min-w-[500px] rounded-b-none">
   <%= turbo_frame_tag "post_#{post.id}" do%>
-  <div class="flex flex-row h-16 w-full space-x-4">
-    <%= link_to profile_path(post.author.profile.id) do %>
-      <%= image_tag 'cat.jpeg', class: 'w-12 h-12 rounded-lg' %>
-    <% end %>
-
-    <div class="flex flex-col">
-      <span class = ""><%= post.title %></span>
-      <span class = "text-xs"><%= post.author.full_name %></span>
+  <div class="flex flex-row h-16 w-full space-x-4 justify-between">
+    <div class="flex">
+      <%= link_to profile_path(post.author.profile.id) do %>
+        <%= image_tag 'cat.jpeg', class: 'w-12 h-12 rounded-lg' %>
+      <% end %>
+      <div class="flex flex-col ml-3">
+        <span class = ""><%= post.title %></span>
+        <span class = "text-xs">by <%= post.author.full_name %></span>
+      </div>
     </div>
     
     <% if current_user.id == post.author.id %>
-      <div data-controller="dropdown" class="relative ml-2 top-5">
+      <div data-controller="dropdown" class="relative float-right">
 
         <button type="button" data-action="dropdown#toggle click@window->dropdown#hide">...</button>
 
         <div
           data-dropdown-target="menu"
-          class="hidden transition transform origin-top-right absolute right-0"
+          class="hidden transition transform origin-top-right absolute right-0 bg-white w-10vw drop-shadow-lg p-2"
           data-transition-enter-from="opacity-0 scale-95"
           data-transition-enter-to="opacity-100 scale-100"
           data-transition-leave-from="opacity-100 scale-100"
           data-transition-leave-to="opacity-0 scale-95"
         >
-          <%= link_to 'Edit', edit_post_path(post), class: "rounded-lg h-10 w-15 bg-gray-100 inline-block font-medium" %>
-          <%= button_to 'Delete', post_path(post), class: "rounded-lg h-10 w-15 bg-gray-100 inline-block font-medium", method: :delete %>
+          <%= link_to 'Edit', edit_post_path(post), class: "inline-block text-sm hover:underline text-gray-90" %>
+          <%= button_to 'Delete', post_path(post), class: "inline-block text-sm hover:underline text-gray-90", method: :delete %>
         </div>      
       </div>
     <% end %>
