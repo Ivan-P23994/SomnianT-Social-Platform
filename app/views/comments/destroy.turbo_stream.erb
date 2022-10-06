@@ -1,1 +1,9 @@
+<% @post = Post.find(@comment.post.id) %>
+
 <%= turbo_stream.remove "comment_#{@comment.id}"%>
+<%= turbo_stream.replace("#{dom_id(@post)}_private_comment_count",
+                         partial: 'shared/comment_count',
+                         locals: {
+                           post: @post,
+                           like_status: current_user.liked?(@post)
+                         }) %>

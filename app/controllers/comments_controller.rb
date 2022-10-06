@@ -51,22 +51,21 @@ class CommentsController < ApplicationController
   def destroy
     @post = Post.find(@comment.post.id)
     @comment.destroy
-
     respond_to do |format|
-      format.turbo_stream do
-        render turbo_stream: private_stream
-      end
+      format.turbo_stream
     end
   end
 
   private
 
   def private_stream
-    private_target = "#{helpers.dom_id(@post)} private_comment_count"
+    private_target = "#{helpers.dom_id(@post)}_private_comment_count"
+    turbo_stream.remove("comment_#{@comment.id}")
     turbo_stream.replace(private_target,
-                         partial: 'shared/like_button',
+                         partial: 'shared/comment_count',
                          locals: {
-                           post: @post
+                           post: @post,
+                           like_status: current_user.liked?(@post)
                          })
   end
 
