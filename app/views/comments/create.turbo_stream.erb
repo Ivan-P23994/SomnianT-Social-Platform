@@ -1,3 +1,11 @@
+<% @post = Post.find(@comment.post.id) %>
+
 <%= turbo_stream.prepend "comment-list_#{@comment.post.id}", partial: "comments/comment", locals: { comment: @comment } %>
 <%= turbo_stream.update "new_comment_#{@comment.post.id}" "" %>
+<%= turbo_stream.replace("#{dom_id(@post)}_private_comment_count",
+                         partial: 'shared/comment_count',
+                         locals: {
+                           post: @post,
+                           like_status: current_user.liked?(@post)
+                         }) %>
 

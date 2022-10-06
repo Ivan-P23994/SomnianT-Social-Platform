@@ -58,17 +58,6 @@ class CommentsController < ApplicationController
 
   private
 
-  def private_stream
-    private_target = "#{helpers.dom_id(@post)}_private_comment_count"
-    turbo_stream.remove("comment_#{@comment.id}")
-    turbo_stream.replace(private_target,
-                         partial: 'shared/comment_count',
-                         locals: {
-                           post: @post,
-                           like_status: current_user.liked?(@post)
-                         })
-  end
-
   # Use callbacks to share common setup or constraints between actions.
   def set_comment
     @comment = Comment.find(params[:id])
