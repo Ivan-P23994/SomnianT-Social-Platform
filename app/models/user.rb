@@ -65,6 +65,10 @@ class User < ApplicationRecord
     liked_posts.include?(post)
   end
 
+  def liked_comment?(comment)
+    liked_comments.include?(comment)
+  end
+
   def dashboard_posts
     arr = friends.ids
     Post.where('author_id IN (?)', arr << id)

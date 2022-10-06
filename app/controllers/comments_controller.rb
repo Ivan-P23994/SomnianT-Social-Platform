@@ -56,7 +56,35 @@ class CommentsController < ApplicationController
     end
   end
 
+  def like
+    @comment = Comment.find(params[:id])
+
+    if current_user.liked_comment?(@comment)
+      @like = @comment.likes.where(user_id: current_user.id).first
+      @like.delete
+    else
+      @like = @comment.likes.new(user_id: current_user.id)
+      @like.save
+    end
+
+    respond_to do |format|
+      format.turbo_stream do
+        render turbo_stream: private_stream
+      end
+    end
+  end
+
   private
+
+  def private_stream
+    private_target = "#{helpers.dom_id(@comment)}_private_comment_likes"
+    turbo_stream.replace(private_target,
+                         partial: 'shared/comment_like',
+                         locals: {
+                           comment: @comment,
+                           like_status: current_user.liked_comment?(@comment)
+                         })
+  end
 
   # Use callbacks to share common setup or constraints between actions.
   def set_comment

@@ -11,7 +11,8 @@ Rails.application.routes.draw do
   get 'friendship/show'
   get 'friendship/request_response'
 
-  post 'like/:id', to: 'posts#like', as: 'like_post'
+  post 'like_post/:id', to: 'posts#like', as: 'like_post'
+  post 'like_comment/:id', to: 'comments#like', as: 'like_comment'
 
   resources :profile, only: [:show, :edit, :update]
 
