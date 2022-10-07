@@ -8,14 +8,19 @@
     </div>
     <%= render 'shared/comment_count', post: post %>
   </div>
-  <div class="flex flex-row justify-around mt-5 py-1 border border-gray-300 border-x-0 text-sm">
-    <div class="flex flex-row items-center justify-center w-1/2 rounded-lg hover:bg-gray-100">
-      <%= image_tag 'like-button.png', class:"w-5 h-5 mr-3" %>
-      <%= button_to like_text, like_post_path(id: post.id) %>
+  <div class="flex flex-row justify-around mt-5 py-1 border border-gray-300 border-x-0 text-sm cursor-pointer">
+    <div class="flex flex-row items-center justify-center w-1/2 rounded-lg hover:bg-gray-100 [&>*]:w-full [&>*]:flex [&>*]:h-full [&>*]:flex-row [&>*]:justify-center [&>*]:[&>*]:w-full">
+      <%= button_to like_post_path(id: post.id), class:"flex flex-row h-full items-center justify-center" do %>
+        <%= image_tag 'like-button.png', class:"w-5 h-5 mr-3" %>
+        <span><%= like_text %></span>
+      <% end %>
     </div>
-    <div class="flex flex-row items-center justify-center w-1/2 h-8 rounded-lg hover:bg-gray-100">
-      <%= image_tag 'comments.png', class:"w-5 h-5 mr-4" %>
-      <%= link_to "Comment", new_comment_path(post_id: post.id), data: { turbo_frame: "new_comment_#{post.id}" } %>
+
+    <div class="flex flex-row items-center justify-center w-1/2 h-8 rounded-lg hover:bg-gray-100 cursor-pointer">
+      <%= link_to new_comment_path(post_id: post.id), data: { turbo_frame: "new_comment_#{post.id}" }, class:"flex flex-row justify-center items-center h-full w-full" do %>
+        <%= image_tag 'comments.png', class:"w-5 h-5 mr-4" %>
+        <span>Comment</span>
+      <% end %>
     </div>
   </div>
 </div>
