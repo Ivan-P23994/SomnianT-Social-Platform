@@ -14,7 +14,7 @@
 #  updated_at  :datetime         not null
 #
 class Profile < ApplicationRecord
-  after_commit :d_the_fault_avatar, on: %i[create update]
+  #after_commit :add_default_avatar, on: %i[create update]
 
   has_one_attached :image
   belongs_to :user

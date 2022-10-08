@@ -2,32 +2,20 @@
 
 require 'faker'
 
-def assign_avatar!(user, name)
+def assign_avatar!(profile, name)
   filename = "#{name}.jpg"
   path = Rails.root.join("app/assets/images/Seed Avatars", filename)
   File.open(path) do |io|
-    user.avatar.attach(io: io, filename: filename)
+    profile.image.attach(io: io, filename: filename)
   end
 end
 
-@users = []
+@profiles = []
 
 ActiveRecord::Base.transaction do
-  Friendship.destroy_all
-  Like.destroy_all
-  Comment.destroy_all
-  Post.destroy_all
-  Profile.destroy_all
-  User.destroy_all
-
-  ActiveRecord::Base.connection.reset_pk_sequence!('likes')
-  ActiveRecord::Base.connection.reset_pk_sequence!('posts')
   ActiveRecord::Base.connection.reset_pk_sequence!('users')
-  ActiveRecord::Base.connection.reset_pk_sequence!('friendships')
-  ActiveRecord::Base.connection.reset_pk_sequence!('profile')
-  ActiveRecord::Base.connection.reset_pk_sequence!('comments')
 
-  @users << (1..30).each do |id|
+  (1..30).each do |id|
     User.create!(
       id: id,
       first_name: Faker::Name.first_name,
@@ -37,7 +25,7 @@ ActiveRecord::Base.transaction do
       password_confirmation: '123456'
     )
 
-    Profile.create!(
+    @profiles << Profile.create!(
       user_id: id,
       birth_year: DateTime.now.year - (20 + id),
       birth_month: DateTime.now.month,
@@ -48,8 +36,9 @@ ActiveRecord::Base.transaction do
     )
   end
 
-  # set seed avatars
-  @users.each_with_index do |user, index|
-    assign_avatar!(user, index)
-  end
+end
+
+# set seed avatars
+@profiles.each_with_index do |profile, index|
+  assign_avatar!(profile, index)
 end
