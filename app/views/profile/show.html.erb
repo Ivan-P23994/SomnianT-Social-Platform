@@ -5,7 +5,8 @@
   
       <div class="w-full bg-white rounded-lg border border-gray-200 shadow-md dark:bg-gray-800 dark:border-gray-700" >
         <div class="flex flex-col items-center pb-10">
-          <%= image_tag "cat.jpeg", class: "flex flex-row drop-shadow-xl rounded-full h-24 w-24 ring-1 p-1 ring-gray-300 dark:ring-gray-500 animate-bounce" %>
+          <%= image_tag @profile.avatar, class: "flex flex-row drop-shadow-xl rounded-full h-24 w-24 ring-1 p-1 ring-gray-300 dark:ring-gray-500 animate-bounce" %>
+
           <h5 class="mb-1 text-xl font-medium text-gray-900 dark:text-white"><%= @profile.user.full_name %></h5>
           <span class="text-sm text-gray-500 dark:text-gray-400"><%= current_user.email %></span>
           <% if current_user.id == @profile.user.id %>

@@ -4,7 +4,7 @@
   <div class="flex flex-row h-16 w-full space-x-4 justify-between">
     <div class="flex">
       <%= link_to profile_path(post.author.profile.id) do %>
-        <%= image_tag 'cat.jpeg', class: 'w-12 h-12 rounded-lg' %>
+        <%= image_tag post.author.profile.avatar, class: 'w-12 h-12 rounded-full' %>
       <% end %>
       <div class="flex flex-col ml-3">
         <span class = ""><%= post.title %></span>

@@ -24,6 +24,6 @@ class ProfileController < ApplicationController
 
   def profile_params
     params.require(:profile).permit(:user_id, :birth_year, :birth_day, :birth_month,
-                                    :occupation, :gender, :birth_place)
+                                    :occupation, :gender, :birth_place, :image)
   end
 end

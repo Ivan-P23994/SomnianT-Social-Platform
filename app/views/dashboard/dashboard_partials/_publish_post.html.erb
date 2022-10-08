@@ -1,8 +1,7 @@
 <div class="flex flex-col min-w-[500px] h-auto w-2/3 rounded-lg bg-white mt-4 p-4">
   <div class="flex flex-row h-16 w-full items-end mt-4">
-
     <%= link_to profile_path(current_user.profile) do %>
-      <%= image_tag 'cat.jpeg', class: 'w-16 h-16 rounded-full' %>
+      <%= image_tag current_user.profile.avatar, class: 'w-16 h-16 rounded-full' %>
     <% end %>
 
     <%= link_to  new_post_path, class: "w-full ml-3", data: { action: "click->modal#open", turbo_stream: "" } do%>
