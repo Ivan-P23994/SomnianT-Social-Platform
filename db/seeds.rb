@@ -27,7 +27,7 @@ ActiveRecord::Base.transaction do
   ActiveRecord::Base.connection.reset_pk_sequence!('posts')
   ActiveRecord::Base.connection.reset_pk_sequence!('comments')
 
-  (1..30).each do |id|
+  (1..29).each do |id|
     @users << User.create!(
       id: id,
       first_name: Faker::Name.first_name,
@@ -36,7 +36,19 @@ ActiveRecord::Base.transaction do
       password: '123456',
       password_confirmation: '123456'
     )
+  end
 
+  sample_user = User.create!(
+    id: 30,
+    first_name: 'Jane',
+    last_name: 'Doe',
+    email: 'janeDoe@example.com',
+    password: '123456',
+    password_confirmation: '123456'
+  )
+  @users << sample_user
+
+  (1..30).each do |id|
     @profiles << Profile.create!(
       user_id: id,
       birth_year: DateTime.now.year - (20 + id),
@@ -68,20 +80,20 @@ ActiveRecord::Base.transaction do
     )
   end
 
-   # create comments
-   comments = []
-   posts.each do |post|
-     rand(5).times do
-       user = @users[rand(@users.length)]
-       date = Faker::Date.between(from: post.created_at, to: Date.today)
-       body = Faker::Quote.jack_handey
-       comments << Comment.create!(post: post,
-                                   author: user,
-                                   body: body,
-                                   created_at: date,
-                                   updated_at: date)
-     end
-   end
+  # create comments
+  comments = []
+  posts.each do |post|
+    rand(5).times do
+      user = @users[rand(@users.length)]
+      date = Faker::Date.between(from: post.created_at, to: Date.today)
+      body = Faker::Quote.jack_handey
+      comments << Comment.create!(post: post,
+                                  author: user,
+                                  body: body,
+                                  created_at: date,
+                                  updated_at: date)
+    end
+  end
 
   # create likes
   @users.length.times do |i|
@@ -90,6 +102,14 @@ ActiveRecord::Base.transaction do
 
     random_likable_reset!(comments.length)
     rand(comments.length / 12).times { Like.create!(liked_on: comments[random_likable], user: @users[i]) }
+  end
+
+  # create friend requests
+  @users.sample(20).each_with_index do |user, i|
+    next if user.id == sample_user.id
+    
+    Friendship.create!(user: user, friend: sample_user)
+    Friendship.create!(user: sample_user, friend: user) if i.odd?
   end
 end
 

@@ -35,8 +35,8 @@ class User < ApplicationRecord
   has_many :received_friendships, class_name: 'Friendship', foreign_key: 'friend_id'
   has_many :received_friends, through: :received_friendships, source: 'user'
 
-  validates :first_name, presence: true, length: 3..20
-  validates :last_name, presence: true, length: 3..20
+  validates :first_name, presence: true, length: 2..20
+  validates :last_name, presence: true, length: 2..20
   validates :email, presence: true,
                     uniqueness: { case_sensitive: false },
                     format: { with: VALID_EMAIL_REGEX, message: 'Email is invalid' }
