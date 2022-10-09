@@ -2,6 +2,14 @@
 
 require 'faker'
 
+def random_likable
+  @likable_indices.pop
+end
+
+def random_likable_reset!(n)
+  @likable_indices = (0...n).to_a.shuffle
+end
+
 def assign_avatar!(profile, name)
   filename = "#{name}.jpg"
   path = Rails.root.join("app/assets/images/Seed Avatars", filename)
@@ -9,11 +17,15 @@ def assign_avatar!(profile, name)
     profile.image.attach(io: io, filename: filename)
   end
 end
+
 @users = []
 @profiles = []
 
 ActiveRecord::Base.transaction do
   ActiveRecord::Base.connection.reset_pk_sequence!('users')
+  ActiveRecord::Base.connection.reset_pk_sequence!('likes')
+  ActiveRecord::Base.connection.reset_pk_sequence!('posts')
+  ActiveRecord::Base.connection.reset_pk_sequence!('comments')
 
   (1..30).each do |id|
     @users << User.create!(
@@ -71,6 +83,14 @@ ActiveRecord::Base.transaction do
      end
    end
 
+  # create likes
+  @users.length.times do |i|
+    random_likable_reset!(posts.length)
+    rand(posts.length / 7).times { Like.create!(liked_on: posts[random_likable], user: @users[i]) }
+
+    random_likable_reset!(comments.length)
+    rand(comments.length / 12).times { Like.create!(liked_on: comments[random_likable], user: @users[i]) }
+  end
 end
 
 # set seed avatars
