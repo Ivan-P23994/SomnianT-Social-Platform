@@ -71,7 +71,7 @@ class User < ApplicationRecord
 
   def dashboard_posts
     arr = friends.ids
-    Post.where('author_id IN (?)', arr << id)
+    Post.where('author_id IN (?)', arr << id).limit(15)
   end
 
   private
