@@ -4,7 +4,7 @@
   <div class="flex flex-row h-10 w-full items-end ">
 
     <%= link_to profile_path(current_user.profile) do %>
-      <%= image_tag 'cat.jpeg', class: 'w-8 h-8 rounded-full mr-3' %>
+      <%= image_tag current_user.profile.avatar, class: 'w-8 h-8 rounded-full mr-3' %>
     <% end %>
 
     

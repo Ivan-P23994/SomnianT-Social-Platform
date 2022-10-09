@@ -3,7 +3,7 @@
 <div id="<%= dom_id comment %>"<%= %> class="flex flex-row w-full h-auto justify-start">
 
   <%= link_to profile_path(comment.author.profile), class:"flex flex-col mr-2" do %>
-    <%= image_tag 'cat.jpeg', class: 'w-10 h-10 rounded-full align-self-end' %>
+    <%= image_tag comment.author.profile.avatar, class: 'w-10 h-10 rounded-full align-self-end' %>
   <% end %>
 
   <div class="flex flex-col w-full justify-start">
