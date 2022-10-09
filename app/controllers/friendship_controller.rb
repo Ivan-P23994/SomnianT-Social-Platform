@@ -9,7 +9,7 @@ class FriendshipController < ApplicationController
   end
 
   def show
-    @fr_requests = current_user.received_friendships.reject(&:mutual?)
+    @fr_requests = current_user.not_responded_requests
   end
 
   def request_response

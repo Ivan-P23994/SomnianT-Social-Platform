@@ -40,13 +40,24 @@ class User < ApplicationRecord
   validates :email, presence: true,
                     uniqueness: { case_sensitive: false },
                     format: { with: VALID_EMAIL_REGEX, message: 'Email is invalid' }
-
   def full_name
-    @full_name ||= User.select("(first_name || ' ' || last_name) as name").where(id:).first.name
+    "#{first_name} #{last_name}"
   end
 
   def active_friends
-    friends.select { |friend| friend.friends.include?(self) }
+    sql = "SELECT DISTINCT e.friend_id
+    FROM friendships m, friendships e
+    WHERE m.user_id = #{id} AND  NOT e.friend_id = #{id}"
+
+    arr = ActiveRecord::Base.connection.execute(sql).to_a.map{|a| a.dig('friend_id')}
+    User.where('id IN (?)', arr)
+  end
+
+  def not_responded_requests
+    a = Friendship.where(friend_id: id).map(&:user_id)
+    b = Friendship.where(user_id: id).map(&:friend_id)
+    c = a - b
+    Friendship.where('user_id IN (?)', c)
   end
 
   def pending_friends
@@ -54,7 +65,12 @@ class User < ApplicationRecord
   end
 
   def not_friends?
-    User.where.not(id: friends.ids << id)
+    sql = "SELECT DISTINCT e.friend_id
+    FROM friendships m, friendships e
+    WHERE m.user_id = #{id} AND  NOT e.friend_id = #{id}"
+
+    arr = ActiveRecord::Base.connection.execute(sql).to_a.map{|a| a.dig('friend_id')}
+    User.where.not(id: arr)
   end
 
   def befriend(recepient_id)

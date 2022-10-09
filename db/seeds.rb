@@ -22,6 +22,14 @@ end
 @profiles = []
 
 ActiveRecord::Base.transaction do
+
+  Friendship.destroy_all
+  Like.destroy_all
+  Comment.destroy_all
+  Post.destroy_all
+  User.destroy_all
+
+
   ActiveRecord::Base.connection.reset_pk_sequence!('users')
   ActiveRecord::Base.connection.reset_pk_sequence!('likes')
   ActiveRecord::Base.connection.reset_pk_sequence!('posts')
@@ -107,7 +115,7 @@ ActiveRecord::Base.transaction do
   # create friend requests
   @users.sample(20).each_with_index do |user, i|
     next if user.id == sample_user.id
-    
+
     Friendship.create!(user: user, friend: sample_user)
     Friendship.create!(user: sample_user, friend: user) if i.odd?
   end

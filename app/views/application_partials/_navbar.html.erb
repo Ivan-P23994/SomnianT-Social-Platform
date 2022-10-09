@@ -36,7 +36,7 @@
               
               <%= image_tag 'friends.svg', class:'w-6 h-6'%>
               <span class="sr-only">Notifications</span>
-              <div class="inline-flex absolute -top-2 -right-2 justify-center items-center w-6 h-6 text-xs font-bold text-white bg-red-500 rounded-full border-2 border-white dark:border-gray-900"><%= current_user.received_friendships.reject(&:mutual?).count %></div>
+              <div class="inline-flex absolute -top-2 -right-2 justify-center items-center w-6 h-6 text-xs font-bold text-white bg-red-500 rounded-full border-2 border-white dark:border-gray-900"><%= current_user.not_responded_requests.count %></div>
             </button>
           <% end %> 
         </li>

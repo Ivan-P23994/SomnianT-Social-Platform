@@ -4,7 +4,7 @@
   </div>
 
   <div class="flex flex-col border-2">
-    <span class="mb-1 text-sm"><b><%= User.find(r.user_id).full_name %></b> sent you a friend request.</span>
+    <span class="mb-1 text-sm"><b><%= r.user.full_name %></b> sent you a friend request.</span>
 
     <div class="flex flex-row w-auto h-auto">
       <%= image_tag 'friends.svg' , class:'flex items-center bg-blue-500 text-sm rounded-full font-medium text-center w-5 h-5 p-1'%>
