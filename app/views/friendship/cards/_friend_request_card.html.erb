@@ -1,17 +1,17 @@
-<div class="flex flex-row h-25vw10 justify-between border-2">
-  <div class="flex">
-    <%= image_tag 'cat.jpeg', class:' w-24 h-24 rounded-full' %>
+<div class="flex flex-row w-30vw bg-white rounded-lg border border-gray-200 shadow-md mt-10 p-3 justify-center">
+  <div class="flex mr-10">
+    <%= image_tag r.user.profile.avatar, class:' w-24 h-24 rounded-full' %>
   </div>
 
-  <div class="flex flex-col border-2">
+  <div class="flex flex-col w-20vw">
     <span class="mb-1 text-sm"><b><%= r.user.full_name %></b> sent you a friend request.</span>
 
-    <div class="flex flex-row w-auto h-auto">
+    <div class="flex flex-row h-auto">
       <%= image_tag 'friends.svg' , class:'flex items-center bg-blue-500 text-sm rounded-full font-medium text-center w-5 h-5 p-1'%>
-      <span class="text-xs text-gray-400 ml-2"> 3 Mutual Friends</span>
+      <span class="text-xs text-gray-400 ml-3 mb-5"> 3 Mutual Friends</span>
     </div>
 
-    <div class="flex flex-row justify-between border-2"> 
+    <div class="flex flex-row w-20vw"> 
       <%= link_to friendship_request_response_path(:friend => r.user_id, :accept => true) do %>
         <div class= "mx-4 text-white bg-gradient-to-r from-blue-500 via-blue-600 to-blue-700 hover:bg-gradient-to-br font-medium rounded-lg text-sm px-5 py-2.5 text-center">Accept</div>
       <% end %>
