@@ -1,6 +1,6 @@
 <div class = "flex flex-col overflow-auto items-center w-full h-90vh border-2">
   <% if @fr_requests.count == 0 %>
-    <p class="text-xl">There are no friend requests at the moment.</p>
+    <p class="text-2xl pt-40">There are no friend requests at the moment.</p>
   <% else %>
     <% @fr_requests.each do |request|%>
       <%= render 'friendship/cards/friend_request_card', :r => request %>
