@@ -13,11 +13,15 @@ class FriendshipController < ApplicationController
   end
 
   def request_response
+    @friendship = Friendship.find(params[:request])
+
     if params[:accept]
       current_user.befriend(params[:friend])
     else
-      Friendship.find(params[:request]).delete
+      @friendship.delete
     end
-    redirect_to action: 'show'
+    respond_to do |format|
+      format.turbo_stream
+    end
   end
 end

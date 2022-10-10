@@ -1,38 +1,37 @@
 
 <%= turbo_frame_tag "comment_#{comment.id}" do%>
-<div id="<%= dom_id comment %>"<%= %> class="flex flex-row w-full h-auto justify-start">
+  <div id="<%= dom_id comment %>"<%= %> class="flex flex-row w-full h-auto justify-start">
 
-  <%= link_to profile_path(comment.author.profile), class:"flex flex-col mr-2" do %>
-    <%= image_tag comment.author.profile.avatar, class: 'w-10 h-10 rounded-full align-self-end' %>
-  <% end %>
+    <%= link_to profile_path(comment.author.profile), class:"flex flex-col mr-2" do %>
+      <%= image_tag comment.author.profile.avatar, class: 'w-10 h-10 rounded-full align-self-end' %>
+    <% end %>
 
-  <div class="flex flex-col w-full justify-start">
-    <p class="text-xs mb-2">
-      <%= comment.author.full_name %>
-    </p>
-    <p class= "flex flex-row w-full h-auto items-center rounded-2xl text-sm break-normal bg-gray-50 p-2 hover:bg-gray-100 border border-gray-300 hover:border-gray-400b">
-      <%= comment.body %>
-      <%= render 'shared/comment_like', comment: comment, like_status: current_user.liked_comment?(comment) %>
-    </p>
-  </div>
-  <% if current_user.id == comment.author.id %>
-    <div data-controller="dropdown" class="relative self-center ml-3">
-
-        <button type="button" data-action="dropdown#toggle click@window->dropdown#hide">...</button>
-
-        <div
-          data-dropdown-target="menu"
-          class="hidden transition transform origin-top-right absolute right-0 bg-white w-10vw drop-shadow-lg p-2"
-          data-transition-enter-from="opacity-0 scale-95"
-          data-transition-enter-to="opacity-100 scale-100"
-          data-transition-leave-from="opacity-100 scale-100"
-          data-transition-leave-to="opacity-0 scale-95"
-        >
-          <%= link_to 'Edit', edit_comment_path(comment), class: "inline-block text-sm hover:underline text-gray-90" %>
-          <%= button_to 'Delete', comment_path(comment), class: "inline-block text-sm hover:underline text-gray-90", method: :delete %>
-        </div>      
+    <div class="flex flex-col w-full justify-start">
+      <p class="text-xs mb-2">
+        <%= comment.author.full_name %>
+      </p>
+      <p class= "flex flex-row w-full h-auto items-center rounded-2xl text-sm break-normal bg-gray-50 p-2 hover:bg-gray-100 border border-gray-300 hover:border-gray-400b">
+        <%= comment.body %>
+        <%= render 'shared/comment_like', comment: comment, like_status: current_user.liked_comment?(comment) %>
+      </p>
     </div>
-  <% end %>
+    <% if current_user.id == comment.author.id %>
+      <div data-controller="dropdown" class="relative self-center ml-3">
 
-</div>
+          <button type="button" data-action="dropdown#toggle click@window->dropdown#hide">...</button>
+
+          <div
+            data-dropdown-target="menu"
+            class="hidden transition transform origin-top-right absolute right-0 bg-white w-10vw drop-shadow-lg p-2"
+            data-transition-enter-from="opacity-0 scale-95"
+            data-transition-enter-to="opacity-100 scale-100"
+            data-transition-leave-from="opacity-100 scale-100"
+            data-transition-leave-to="opacity-0 scale-95"
+          >
+            <%= link_to 'Edit', edit_comment_path(comment), class: "inline-block text-sm hover:underline text-gray-90" %>
+            <%= button_to 'Delete', comment_path(comment), class: "inline-block text-sm hover:underline text-gray-90", method: :delete %>
+          </div>      
+      </div>
+    <% end %>
+  </div>
 <% end %>
