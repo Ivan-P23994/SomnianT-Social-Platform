@@ -1,1 +1,6 @@
 <%= turbo_stream.remove "friend_request_#{@friendship.id}"%>
+<%= turbo_stream.replace("friend_request_counter",
+                         partial: 'application_partials/fr_counter',
+                         locals: {
+                           counter: User.find(current_user.id).not_responded_requests.count                       
+                         }) %>
