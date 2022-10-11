@@ -9,10 +9,10 @@
     
         <div class="flex flex-row justify-between w-2/3">
           <%= link_to friendship_befriend_path(friend_id: friend.id, state: "accept", format: :turbo_stream) do %>
-            <div class= "w-4vw mr-2 text-white bg-gradient-to-r from-blue-500 via-blue-600 to-blue-700 hover:bg-gradient-to-br font-medium rounded-lg text-sm px-4 py-1 text-center">Add</div>
+            <div class= "w-4vw mr-2 text-white bg-gradient-to-r from-blue-500 via-blue-600 to-blue-700 hover:bg-gradient-to-br font-light rounded-lg text-sm px-4 py-1 text-center">Add</div>
           <% end %>
           <%= link_to friendship_befriend_path(friend_id: friend.id, state: "decline", format: :turbo_stream) do %>
-            <div class= "text-white w-4vw bg-gray-300 hover:bg-gradient-to-br font-medium rounded-lg text-sm px-3 py-1 items-center">Remove</div>
+            <div class= "text-white w-4vw bg-gradient-to-r from-amber-200 via-amber-400 to-amber-500 hover:bg-gradient-to-br font-light rounded-lg text-sm px-3 py-1 items-center">Remove</div>
           <% end %>
         </div>
       </div>
