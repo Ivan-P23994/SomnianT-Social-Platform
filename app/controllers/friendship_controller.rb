@@ -4,8 +4,12 @@ class FriendshipController < ApplicationController
   end
 
   def befriend
-    current_user.befriend(params[:friend_id])
-    redirect_to action: 'discover'
+    current_user.befriend(params[:friend_id]) if params[:state] == 'accept'
+
+    @friend = current_user.not_friends?.sample(1).first
+    respond_to do |format|
+      format.turbo_stream
+    end
   end
 
   def show

@@ -1,0 +1,2 @@
+<%= turbo_stream.replace "suggested_friend_#{params[:friend_id]}",
+ partial: 'dashboard/dashboard_partials/suggested_friend_card', locals: { friend: @friend }%>
