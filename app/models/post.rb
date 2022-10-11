@@ -12,11 +12,16 @@
 class Post < ApplicationRecord
   before_destroy :destroy_likes
 
+  has_one_attached :image
   belongs_to :author, class_name: 'User'
   has_many :comments, dependent: :destroy
   has_many :likes, as: :liked_on, dependent: :destroy
 
   validates :author, :title, :body, presence: true
+
+  def attached_image
+    image.attached? ? image : nil
+  end
 
   def liked?(id)
     return true if likes.where(user_id: id).count > 1

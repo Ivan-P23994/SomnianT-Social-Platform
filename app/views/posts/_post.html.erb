@@ -32,7 +32,11 @@
     <% end %>
 
   </div>
-
+  
+  <div class="flex">
+    <%= image_tag post.attached_image if post.image.attached? %>
+  </div>
+  
   <div class="my-5 text-sm text-justify">
     <%= post.body %>
   </div>
