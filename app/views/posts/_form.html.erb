@@ -10,17 +10,18 @@
   <% end %>
 
   <div class="my-5 px-4">
-    <%= form.label :title %>
+    <%= form.label :title, class:"font-light" %>
     <%= form.text_field :title, class: "block shadow rounded-md border border-gray-200 outline-none px-3 py-2 mt-2 w-full" %>
   </div>
 
   <div class="my-5 px-4">
-    <%= form.label :body %>
+    <%= form.label :body, class:"font-light" %>
     <%= form.text_area :body, class: "block shadow rounded-md border border-gray-200 outline-none px-3 py-2 mt-2 h-48 w-full" %>
     <%= form.hidden_field :author_id, value: current_user.id %>
   </div>
 
-  <%=  form.file_field :image, class:"text-sm text-grey-500
+  
+  <%=  form.file_field :image, class:"ml-5 text-sm text-grey-500
     file:mr-5 file:py-2 file:px-6
     file:rounded-lg file:border-0
     file:text-sm file:font-medium
