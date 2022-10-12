@@ -1,0 +1,16 @@
+<turbo-frame id="<%= params.fetch(:turbo_frame, "search_results") %>">
+<% if @users.length > 0 %>
+  <div class="absolute top-20 p-2 w-full bg-white boder-2 border-gray-300 rounded-lg shadow-md">
+    <ul role="listbox" data-combobox-target="list" class="space-y-1 ">
+      <% @users.first(10).each do |user| %>
+        <li>
+          <div class="flex flex-row hover:border">
+            <%= image_tag user.profile.avatar, class:"mr-6 w-8 h-8 rounded-full shadow-lg"%>
+            <%= link_to highlight(user.full_name, params[:query]), profile_path(user.profile), id: dom_id(user, :search_result), role: "option", class: "aria-selected:outline-black" %>
+          </div>
+        </li>
+      <% end %>
+    </ul>
+  </div>
+<% end %>
+</turbo-frame>

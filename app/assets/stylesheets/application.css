@@ -13,3 +13,6 @@
  *= require_tree .
  *= require_self
  */
+.empty\:hidden:empty                                { display: none; }
+.peer:invalid ~ .peer-invalid\:hidden               { display: none; }
+.aria-selected\:outline-black[aria-selected="true"] { outline: 5px dotted black; }

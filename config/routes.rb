@@ -16,5 +16,7 @@ Rails.application.routes.draw do
 
   resources :profile, only: [:show, :edit, :update]
 
+  resources :search, only: :index
+
   root to: 'dashboard#index'
 end
