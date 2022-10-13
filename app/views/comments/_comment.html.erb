@@ -1,8 +1,8 @@
 
-<%= turbo_frame_tag "comment_#{comment.id}" do%>
-  <div id="<%= dom_id comment %>"<%= %> class="flex flex-row w-full h-auto justify-start">
+<%= turbo_frame_tag "comment_#{comment.id}", class:"min-w-[500px] w-full" do%>
+  <div id="<%= dom_id comment %>"<%= %> class="flex flex-row w-auto h-auto justify-start min-w-[500px]">
 
-    <%= link_to profile_path(comment.author.profile), class:"flex flex-col mr-2" do %>
+    <%= link_to profile_path(comment.author.profile), class:"hidden lg:flex flex-col w-10 h-10 lg:mr-2" do %>
       <%= image_tag comment.author.profile.avatar, class: 'w-10 h-10 rounded-full align-self-end' %>
     <% end %>
 
@@ -10,7 +10,7 @@
       <p class="text-xs mb-2">
         <%= comment.author.full_name %>
       </p>
-      <p class= "flex flex-row w-full h-auto items-center rounded-2xl text-sm break-normal bg-gray-50 p-2 hover:bg-gray-100 border border-gray-300 hover:border-gray-400b">
+      <p class= "flex flex-row w-full h-auto items-center rounded-2xl text-sm break-normal bg-gray-50 p-2 hover:bg-gray-100 border border-gray-300 hover:border-gray-400b min-w-[500px]">
         <%= comment.body %>
         <%= render 'shared/comment_like', comment: comment, like_status: current_user.liked_comment?(comment) %>
       </p>

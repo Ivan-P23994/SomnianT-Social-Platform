@@ -35,7 +35,7 @@ ActiveRecord::Base.transaction do
   ActiveRecord::Base.connection.reset_pk_sequence!('posts')
   ActiveRecord::Base.connection.reset_pk_sequence!('comments')
 
-  (1..29).each do |id|
+  (1..49).each do |id|
     @users << User.create!(
       id: id,
       first_name: Faker::Name.first_name,
@@ -47,7 +47,7 @@ ActiveRecord::Base.transaction do
   end
 
   sample_user = User.create!(
-    id: 30,
+    id: 50,
     first_name: 'Jane',
     last_name: 'Doe',
     email: 'janeDoe@example.com',
@@ -56,7 +56,7 @@ ActiveRecord::Base.transaction do
   )
   @users << sample_user
 
-  (1..30).each do |id|
+  (1..50).each do |id|
     @profiles << Profile.create!(
       user_id: id,
       birth_year: DateTime.now.year - (20 + id),
@@ -106,10 +106,10 @@ ActiveRecord::Base.transaction do
   # create likes
   @users.length.times do |i|
     random_likable_reset!(posts.length)
-    rand(posts.length / 7).times { Like.create!(liked_on: posts[random_likable], user: @users[i]) }
+    rand(posts.length / 14).times { Like.create!(liked_on: posts[random_likable], user: @users[i]) }
 
     random_likable_reset!(comments.length)
-    rand(comments.length / 12).times { Like.create!(liked_on: comments[random_likable], user: @users[i]) }
+    rand(comments.length / 24).times { Like.create!(liked_on: comments[random_likable], user: @users[i]) }
   end
 
   # create friend requests

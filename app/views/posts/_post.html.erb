@@ -1,5 +1,5 @@
 
-<div id="<%= dom_id post %>", class ="flex flex-col w-2/3 rounded-lg bg-white mt-4 py-4 px-6 min-w-[500px] rounded-b-none">
+<div id="<%= dom_id post %>", class ="flex flex-col w-2/3 rounded-lg bg-white mt-4 py-4 px-6 min-w-[600px] rounded-b-none">
   <%= turbo_frame_tag "post_#{post.id}" do%>
   <div class="flex flex-row h-16 w-full space-x-4 justify-between">
     <div class="flex">
@@ -46,7 +46,7 @@
   <%= render 'shared/like_button', post: post, like_status: current_user.liked?(post) %>
 
 
-  <div id="comment-list_<%=post.id%>" class="flex flex-col w-full rounded-lg bg-white gap-y-4 py-4 min-w-[500px] rounded-t-none">
+  <div id="comment-list_<%=post.id%>" class="flex flex-col w-full rounded-lg bg-white gap-y-4 py-4 rounded-t-none">
       <% post.comments.order(id: :desc).each do |comment| %>
         <%= render "comments/comment", comment: comment %>
       <% end %>

@@ -8,6 +8,7 @@ Rails.application.routes.draw do
 
   get 'friendship/discover'
   get 'friendship/befriend'
+  get 'friendship/befriend_discovered_user'
   get 'friendship/show'
   get 'friendship/request_response'
 

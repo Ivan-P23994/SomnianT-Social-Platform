@@ -49,7 +49,7 @@ class User < ApplicationRecord
     FROM friendships m, friendships e
     WHERE m.user_id = #{id} AND  NOT e.friend_id = #{id}"
 
-    arr = ActiveRecord::Base.connection.execute(sql).to_a.map{|a| a.dig('friend_id')}
+    arr = ActiveRecord::Base.connection.execute(sql).to_a.map { |a| a['friend_id'] }
     User.where('id IN (?)', arr)
   end
 
@@ -69,7 +69,7 @@ class User < ApplicationRecord
     FROM friendships m, friendships e
     WHERE m.user_id = #{id} AND  NOT e.friend_id = #{id}"
 
-    arr = ActiveRecord::Base.connection.execute(sql).to_a.map{|a| a.dig('friend_id')}
+    arr = ActiveRecord::Base.connection.execute(sql).to_a.map { |a| a['friend_id'] }
     User.where.not(id: arr)
   end
 
