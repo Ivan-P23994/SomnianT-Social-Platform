@@ -6,6 +6,7 @@ export default class extends Controller {
 
   initialize() {
     this.submit = debounce(this.submit.bind(this), 100)
+
   }
 
   connect() {

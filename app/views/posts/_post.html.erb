@@ -2,8 +2,8 @@
 <div id="<%= dom_id post %>", class ="flex flex-col w-2/3 rounded-lg bg-white mt-4 py-4 px-6 min-w-[600px] rounded-b-none">
   <%= turbo_frame_tag "post_#{post.id}" do%>
   <div class="flex flex-row h-16 w-full space-x-4 justify-between">
-    <div class="flex">
-      <%= link_to profile_path(post.author.profile.id) do %>
+    <div class="flex h-auto w-auto">
+      <%= link_to profile_path(post.author.profile) do %>
         <%= image_tag post.author.profile.avatar, class: 'w-12 h-12 rounded-full' %>
       <% end %>
       <div class="flex flex-col ml-3">

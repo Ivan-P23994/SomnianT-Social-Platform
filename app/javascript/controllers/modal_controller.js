@@ -14,7 +14,7 @@ static values = {
     this.toggleClass = 'hidden';
     this.backgroundId = 'modal-background';
     this.backgroundHtml = this._backgroundHTML();
-    this.lockScroll();
+    
     this.allowBackgroundClose = (this.data.get('allowBackgroundClose') || 'true') === 'true';
   }
 

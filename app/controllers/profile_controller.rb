@@ -2,6 +2,7 @@ class ProfileController < ApplicationController
   def show
     @user = User.find(params[:id])
     @profile = @user.profile
+    @posts = @user.posts
 
     render :show, status: :ok
   end

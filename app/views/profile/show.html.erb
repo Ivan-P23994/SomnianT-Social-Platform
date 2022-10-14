@@ -1,40 +1,64 @@
-<div class="flex flex-row justify-start">
-  <%= render 'dashboard/dashboard_partials/side_navbar' %>
-  <div class="flex flex-col items-center w-full h-full space-y-10 border-2">
-    <div class="flex flex-col justify-start items-center h-90vh w-1/3 pt-6">
-  
-      <div class="w-full bg-white rounded-lg border border-gray-200 shadow-md dark:bg-gray-800 dark:border-gray-700" >
-        <div class="flex flex-col items-center pb-10">
-          <%= image_tag @profile.avatar, class: "flex flex-row drop-shadow-xl rounded-full h-24 w-24 ring-1 p-1 ring-gray-300 dark:ring-gray-500 animate-bounce" %>
-
-          <h5 class="mb-1 text-xl font-medium text-gray-900 dark:text-white"><%= @profile.user.full_name %></h5>
-          <span class="text-sm text-gray-500 dark:text-gray-400"><%= current_user.email %></span>
-          <% if current_user.id == @profile.user.id %>
-            <div class="flex mt-4 space-x-3 md:mt-6">
-              <a href="#" class = "mx-4 text-white bg-gradient-to-r from-blue-500 via-blue-600 to-blue-700 hover:bg-gradient-to-br font-medium rounded-lg text-sm px-5 py-2.5 text-center">Discover People</a>
-              <%= button_to "Edit Profile", edit_profile_path(@profile), method: :get, class: "mx-4 text-white bg-gradient-to-r from-blue-500 via-blue-600 to-blue-700 hover:bg-gradient-to-br font-medium rounded-lg text-sm px-5 py-2.5 text-center" %>            </div>
-            </div>
-            <% end %>
+<link rel="stylesheet" href="https://demos.creative-tim.com/notus-js/assets/vendor/@fortawesome/fontawesome-free/css/all.min.css">
+  <div class="p-16 flex flex-col w-full h-full overflow-y-auto">
+  <div class="p-8 bg-white shadow mt-24">
+    <div class="grid grid-cols-1 md:grid-cols-3">
+      <div class="grid grid-cols-3 text-center order-last md:order-first mt-20 md:mt-0">
+        <div>
+          <p class="font-bold text-gray-700 text-xl"><%= @profile.user.active_friends.count%></p>
+          <p class="text-gray-400">Friends</p>
+        </div>
+        <div>
+             <p class="font-bold text-gray-700 text-xl"><%= rand(80)%></p>
+          <p class="text-gray-400">Photos</p>
+        </div>
+            <div>
+             <p class="font-bold text-gray-700 text-xl"><%= @profile.user.comments.count %></p>
+          <p class="text-gray-400">Comments</p>
+        </div>
       </div>
+      <div class="relative">
+        <div class="w-48 h-48 bg-indigo-100 mx-auto rounded-full shadow-2xl absolute inset-x-0 top-0 -mt-24 flex items-center justify-center text-indigo-500">
+          <%= image_tag @profile.avatar, class: 'h-full w-full rounded-full' %>
+        </div>
+      </div>
+      <% if current_user.id != @profile.user.id %>
+      <div class="space-x-8 flex justify-between mt-32 md:mt-0 md:justify-center">
+        <div class="inline-flex items-center py-2 px-8 text-sm font-medium text-center text-white bg-gradient-to-r from-blue-800 to-amber-500 rounded-lg hover:bg-blue-800 focus:ring-4 focus:outline-none focus:ring-blue-300">
+          <%= link_to 'Connect', friendship_befriend_discovered_user_path(friend_id: @profile.user.id, format: :turbo_stream) %>
+        </div>
+      </div>
+      <% end %>
+    </div>
   
-      <div class="flex flex-col items-center w-full mt-8 p-8 space-y-3 bg-white rounded-lg border border-gray-200 shadow-md dark:bg-gray-800 dark:border-gray-700 5">
-        <div class="flex flex-row w-10/12 justify-between ">
-          <p>Birthday</p>
-          <%= @profile.birthday %>
-        </div>
-        <div class="flex flex-row w-10/12 justify-between ">
-          <p>Hometown</p>
-          <%= @profile.birth_place %>
-        </div>
-        <div class="flex flex-row w-10/12 justify-between ">
-          <p>Gender</p>
-          <%= @profile.gender.capitalize %>
-        </div>
-        <div class="flex flex-row w-10/12 justify-between ">
-          <p>Occupation</p>
-          <%= @profile.occupation %>
-        </div>
+    <div class="mt-20 text-center border-b pb-12">
+      <h1 class="text-4xl font-medium text-gray-700"><%= @profile.user.full_name%><span class="font-light text-gray-500"> <%= "   "%><%= "#{DateTime.now.year - @profile.birth_year.to_i}" %></span></h1>
+      
+      <div class="text-sm justify-center items-center flex flex-row mt-3 mb-2 font-bold uppercase">
+        <i class="fas text-gray-500 fa-map-marker-alt mr-2 text-lg"></i>
+        <p class="font-light text-gray-600 mt-3"><%= Faker::Address.state %></p>
+      </div>
+
+      <div class="mt-10 flex flex-row justify-center">
+          <i class="fas text-gray-500 fa-briefcase mr-5 text-lg "></i>
+          <p class=" text-gray-500"><%= @profile.occupation %> - <%= Faker::Job.seniority %></p>
+      </div>
+      
+      <div class="mb-2 flex flex-row justify-center items-baseline">
+        <i class="fas fa-university mr-5 text-gray-500 text-lg"></i>
+        <p class="mt-2 text-gray-500"><%= @profile.birth_place %> - <%= Faker::Educator.degree %></p>
       </div>
     </div>
+  
+    <div class="mt-12 flex flex-col justify-center">
+      <p class="text-gray-600 text-center font-light lg:px-16"><%= Faker::TvShows::Simpsons.quote%></p>
+      <button class="text-indigo-500 py-2 px-4 font-medium mt-4">Show more
+      </button>
+    </div>
+  
   </div>
-</div>
+  <div class="flex flex-col h-auto w-full items-center rounded overflow-y-auto">
+      <% @posts.order(id: :desc).each do |post| %>
+        <%= render "posts/post", post: post %>
+      <% end %>
+  </div>
+  </div>
