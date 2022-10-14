@@ -18,9 +18,9 @@ class FriendshipController < ApplicationController
     @user = current_user.not_friends?.sample(1).first
     respond_to do |format|
       format.turbo_stream do
-        render turbo_stream: turbo_stream.replace("discovered_user_#{params[:friend_id]}",
-                                                  partial: 'friendship/cards/user_card',
-                                                  locals: { user: @user })
+      render turbo_stream: turbo_stream.replace( "discovered_user_#{params[:friend_id]}",
+                                                partial: 'friendship/cards/user_card',
+                                                locals: { user: @user })
       end
     end
   end
