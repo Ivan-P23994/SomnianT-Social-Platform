@@ -48,9 +48,9 @@ ActiveRecord::Base.transaction do
 
   sample_user = User.create!(
     id: 50,
-    first_name: 'Jane',
+    first_name: 'John',
     last_name: 'Doe',
-    email: 'janeDoe@example.com',
+    email: 'johnDoe@example.com',
     password: '123456',
     password_confirmation: '123456'
   )
