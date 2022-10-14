@@ -15,7 +15,7 @@ Rails.application.routes.draw do
   post 'like_post/:id', to: 'posts#like', as: 'like_post'
   post 'like_comment/:id', to: 'comments#like', as: 'like_comment'
 
-  resources :profile, only: [:show, :edit, :update]
+  resources :profile
 
   resources :search, only: :index
 

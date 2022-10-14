@@ -17,7 +17,7 @@
 
   <div id="post-list" class="flex flex-col h-auto w-full items-center rounded">
       <% @posts.order(id: :desc).each do |post| %>
-        <%= render "posts/post", post: post %>
+        <%= render "posts/post", owner: post.author , post: post %>
       <% end %>
   </div>
 
