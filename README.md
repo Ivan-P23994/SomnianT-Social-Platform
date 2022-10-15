@@ -5,6 +5,8 @@
 
 This section should list any major frameworks/libraries used to bootstrap your project. Leave any add-ons/plugins for the acknowledgements section. Here are a few examples.
 
+[![My Skills](https://skillicons.dev/icons?i=ruby,rails,postgres,tailwind)](https://skillicons.dev)
+
 * [![Next][Next.js]][Next-url]
 * [![Rails][Ruby on rails]][Rails-url]
 * [![Vue][Vue.js]][Vue-url]
