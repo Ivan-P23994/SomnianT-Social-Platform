@@ -6,6 +6,15 @@
 [![My Skills](https://skillicons.dev/icons?i=html,css,js,ruby,rails,postgres,tailwind)](https://skillicons.dev)
 
 
+
+### Reflection
+
+This was a rewarding project. The initial challenge was modeling friendships, which I based around the idea of a friendship sender and receiver. Once a friendship is requested, the `Friendship` object is created. To confirm the state of the friendship relation between two users I used some rails magic along with SQL statements to check are there two friendship objects aimed at each of the users. Depending on the result of the query we can observe the state of the friendship between two users. In hindsight I am aware there were potentialy better ways to go about it(eg. using a model enum that changes) but I achieved satisfactory results with this setup.
+
+Another challenge was figuring out how to harness the power of Hotwire to make the app seem alive using turbo_frame_tag, turbo streams and stimulus controllers for events watching.
+
+
+
 https://user-images.githubusercontent.com/101200406/195985880-d1fca843-722c-42a4-b054-f6eaef044882.mp4
 
 
@@ -64,14 +73,6 @@ https://user-images.githubusercontent.com/101200406/195985880-d1fca843-722c-42a4
 
 ![register](https://user-images.githubusercontent.com/101200406/195984216-8d0ba5c0-01b8-409e-820e-267d69e48272.png)
 
-
-### Reflection
-
-This was a rewarding project. The initial challenge was modeling friendships, which I based around the idea of a friendship sender and receiver. Once a friendship is requested, the `Friendship` object is created with a default enumerated status of `pending` => `enum status: %i[pending accepted declined]`. When a user clicks "accept", the status is updated to 'accepted'.
-
-Another challenge was figuring out nested comments. For this, I had to harness the power of Rails' partials, rendering the `post.comments` collection within the post partial and then recursively rendering the `comment.comments` collection within the comment partial itself. This also required setting up the `:commentable` polymorphic association on the `Comment` model. Similarly `Like` objects belong to the polymorphic association `:likeable`
-
-One of the biggest challenges was figuring out how to send a user notifications after certain user events. I achieved this via a `NotificationsManager` module [app/lib/notifications_manager.rb](app/lib/notifications_manager.rb) and private methods within the Controllers for which a notification may be relevant. For example,
 
 
 # How to run this app locally?
