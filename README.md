@@ -1,17 +1,17 @@
 # README
 
 
-### Built With
-
-[![My Skills](https://skillicons.dev/icons?i=html,css,js,ruby,rails,postgres,tailwind)](https://skillicons.dev)
-
-
 
 ### Reflection
 
 This was a rewarding project. The initial challenge was modeling friendships, which I based around the idea of a friendship sender and receiver. Once a friendship is requested, the `Friendship` object is created. To confirm the state of the friendship relation between two users I used some rails magic along with SQL statements to check are there two friendship objects aimed at each of the users. Depending on the result of the query we can observe the state of the friendship between two users. In hindsight I am aware there were potentialy better ways to go about it(eg. using a model enum that changes) but I achieved satisfactory results with this setup.
 
 Another challenge was figuring out how to harness the power of Hotwire to make the app seem alive using turbo_frame_tag, turbo streams and stimulus controllers for events watching.
+
+
+### 👾 Tech Stack
+
+[![My Skills](https://skillicons.dev/icons?i=html,css,js,ruby,rails,postgres,tailwind)](https://skillicons.dev)
 
 
 
