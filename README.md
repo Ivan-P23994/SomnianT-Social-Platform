@@ -1,7 +1,20 @@
 # README
 
-This project is a generic social platform built with Ruby on Rails in the back,
-Tailwindcss for styling and Hotwire + Stimulus for some frontend magic. 
+
+### Built With
+
+This section should list any major frameworks/libraries used to bootstrap your project. Leave any add-ons/plugins for the acknowledgements section. Here are a few examples.
+
+* [![Next][Next.js]][Next-url]
+* [![Rails][Ruby on rails]][Rails-url]
+* [![Vue][Vue.js]][Vue-url]
+* [![Angular][Angular.io]][Angular-url]
+* [![Svelte][Svelte.dev]][Svelte-url]
+* [![Laravel][Laravel.com]][Laravel-url]
+* [![Bootstrap][Bootstrap.com]][Bootstrap-url]
+* [![JQuery][JQuery.com]][JQuery-url]
+
+<p align="right">(<a href="#readme-top">back to top</a>)</p>
 
 ![landing](https://user-images.githubusercontent.com/101200406/195984221-fa8656cd-432b-468a-9288-cebb1e728b7a.png)
 
