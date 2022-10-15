@@ -1,24 +1,35 @@
 # README
 
-This README would normally document whatever steps are necessary to get the
-application up and running.
+This project is a generic social platform built with Ruby on Rails in the back, Tailwindcss for styling and Hotwire plus Stimulus for some frontend magic. Read more [here](https://www.theodinproject.com/courses/ruby-on-rails/lessons/final-project)
 
-Things you may want to cover:
+<img width="1280" alt="Screenshot 2021-12-02 at 09 20 13" src="https://drive.google.com/file/d/1Ch3Nc3H6IoeZV_ichlShL3UOzx05Enfw/view?usp=sharing">
 
-* Ruby version
+# Features
 
-* System dependencies
+Users can
 
-* Configuration
+- Sign in/Sign
+- Create posts(text or images)
+- Like Posts
+- Post Comments(text or image)
+- Like comments
+- Add/Remove friends
+- Search for users, friends or posts
 
-* Database creation
+You can login with
+Username - janeDoe@example.com
+Password - 123456
 
-* Database initialization
+# How to run this app locally?
 
-* How to run the test suite
+- Clone the repository
+- Navigate to the project directory by running `cd odin-facebook`
+- Run `bundle install`
+- Run `rails db:migrate` to setup the database
+- Run `rails db:seed` to seed the database
+- Start the rails server by running `./bin/dev`
+- Visit https://localhost:3000 to view the app in the browser
 
-* Services (job queues, cache servers, search engines, etc.)
+# Tests
 
-* Deployment instructions
-
-* ...
+You can run tests by running `bundle exec rspec`
