@@ -20,6 +20,7 @@ https://user-images.githubusercontent.com/101200406/195985880-d1fca843-722c-42a4
 - Signup/login with GitHub using OAuth2 
 
 ![landing](https://user-images.githubusercontent.com/101200406/195984221-fa8656cd-432b-468a-9288-cebb1e728b7a.png)
+<img src="[https://your-image-url.type](https://user-images.githubusercontent.com/101200406/195984221-fa8656cd-432b-468a-9288-cebb1e728b7a.png)" width="400" height="300">
 
 #### Friendships
 
