@@ -3,7 +3,7 @@
 This project is a generic social platform built with Ruby on Rails in the back,
 Tailwindcss for styling and Hotwire + Stimulus for some frontend magic. 
 
-![landing](https://user-images.githubusercontent.com/101200406/195984221-fa8656cd-432b-468a-9288-cebb1e728b7a.png=500x900)
+![landing](https://user-images.githubusercontent.com/101200406/195984221-fa8656cd-432b-468a-9288-cebb1e728b7a.png)
 
 ![register](https://user-images.githubusercontent.com/101200406/195984216-8d0ba5c0-01b8-409e-820e-267d69e48272.png)
 
