@@ -6,14 +6,6 @@
 [![My Skills](https://skillicons.dev/icons?i=html,css,js,ruby,rails,postgres,tailwind)](https://skillicons.dev)
 
 
-
-![landing](https://user-images.githubusercontent.com/101200406/195984221-fa8656cd-432b-468a-9288-cebb1e728b7a.png)
-
-![register](https://user-images.githubusercontent.com/101200406/195984216-8d0ba5c0-01b8-409e-820e-267d69e48272.png)
-
-
-
-
 https://user-images.githubusercontent.com/101200406/195985880-d1fca843-722c-42a4-b054-f6eaef044882.mp4
 
 
@@ -24,49 +16,52 @@ https://user-images.githubusercontent.com/101200406/195985880-d1fca843-722c-42a4
 #### Registration
 
 - Receive a welcome email on signup (SendGrid add-on) 
-- Authentication via Devise _or_ ✔️
-- Signup/login with GitHub using OAuth2
+- Authentication via Devise _or_  ✔️
+- Signup/login with GitHub using OAuth2 
+
+![landing](https://user-images.githubusercontent.com/101200406/195984221-fa8656cd-432b-468a-9288-cebb1e728b7a.png)
 
 #### Friendships
 
-- Add other users as friends.
-- "Unfriend" other users.
-- Search for other users by name.
-- Accept or decline friendships from Notifications page.
+- Add other users as friends.  ✔️
+- "Unfriend" other users.  ✔️
+- Search for other users by name.  ✔️
+- Accept or decline friendships from Notifications page.  ✔️
 
 #### Posts
 
-- Post text content, an image, or both.
-- View your posts and friends' posts from the home page.
-- Edit/Delete your posts.
-- Comment on Posts.
-- "Like" Posts.
+- Post text content, an image, or both.  ✔️
+- View your posts and friends' posts from the home page.  ✔️
+- Edit/Delete your posts.  ✔️
+- Comment on Posts.  ✔️
+- "Like" Posts.  ✔️
 - View which users "liked" a post.
-- Posts are paginated with the Kaminari gem.
 
 #### Comments
 
-- Comment on Posts.
-- Edit/Delete your comments.
+- Comment on Posts.  ✔️
+- Edit/Delete your comments.  ✔️
 - Reply to Comments (Nested Comments).
-- "Like" Comments.
+- "Like" Comments.  ✔️
 - Hide/show comments/replies.
-- View which users "liked" a comment.
+- View which users "liked" a comment.  ✔️
 
 #### Notifications
 
-- Friend requests from other users
+- Friend requests from other users  ✔️
 - When a user accepts your friend requests
 - When another user comments on or likes your post/comment
 - Dismiss one or all notifications.
 
 #### Profile
 
-- Upload a profile picture.
-- Create a profile with basic attributes
+- Upload a profile picture.  ✔️
+- Create a profile with basic attributes  ✔️
 - Create a post from your profile page.
-- View posts of friends from their profile page.
-- Send/accept a friend request from a user's profile page.
+- View posts of friends from their profile page.  ✔️
+- Send/accept a friend request from a user's profile page.  ✔️
+
+![register](https://user-images.githubusercontent.com/101200406/195984216-8d0ba5c0-01b8-409e-820e-267d69e48272.png)
 
 
 ### Reflection
