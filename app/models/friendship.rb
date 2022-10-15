@@ -17,7 +17,7 @@ class Friendship < ApplicationRecord
   validates :user_id, :friend_id, presence: true
   validate :user_is_not_equal_friend
   # validate :friends_max?
-  validates :user_id, presence: true, uniqueness: { scope: :friend_id }
+  # validates :user_id, presence: true, uniqueness: { scope: :friend_id }
 
   def mutual?
     friend.friends.include?(user)
