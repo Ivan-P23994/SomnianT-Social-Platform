@@ -7,6 +7,10 @@ Tailwindcss for styling and Hotwire + Stimulus for some frontend magic.
 
 ![register](https://user-images.githubusercontent.com/101200406/195984216-8d0ba5c0-01b8-409e-820e-267d69e48272.png)
 
+
+https://user-images.githubusercontent.com/101200406/195985562-c129f013-6b2c-4f11-b8dc-efbdee9db9e2.mp4
+
+
 # Features
 
 Users can
