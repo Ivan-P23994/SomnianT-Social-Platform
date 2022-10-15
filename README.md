@@ -1,8 +1,11 @@
 # README
 
-This project is a generic social platform built with Ruby on Rails in the back, Tailwindcss for styling and Hotwire plus Stimulus for some frontend magic. Read more [here](https://www.theodinproject.com/courses/ruby-on-rails/lessons/final-project)
+This project is a generic social platform built with Ruby on Rails in the back,
+Tailwindcss for styling and Hotwire + Stimulus for some frontend magic. 
 
-<img width="1280" alt="Screenshot 2021-12-02 at 09 20 13" src="https://drive.google.com/file/d/1Ch3Nc3H6IoeZV_ichlShL3UOzx05Enfw/view?usp=sharing">
+
+![This is a landing page image](https://drive.google.com/file/d/1Ch3Nc3H6IoeZV_ichlShL3UOzx05Enfw/view?usp=sharing)
+
 
 # Features
 
