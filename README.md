@@ -77,13 +77,13 @@ https://user-images.githubusercontent.com/101200406/195985880-d1fca843-722c-42a4
 # How to run this app locally?
 
 - Clone the repository
-- ```bash
+ ```bash
   git clone https://github.com/Ivan-P23994/Facebook_Clone.git
 ```
 - Navigate to the project directory
   cd facebook_clone
 ```
--Install dependencies
+- Install dependencies
 
 ```bash
   bundle install
