@@ -31,8 +31,6 @@ https://user-images.githubusercontent.com/101200406/195985880-d1fca843-722c-42a4
 - Authentication via Devise _or_  :white_check_mark:
 - Signup/login with GitHub using OAuth2 
 
-![landing](https://user-images.githubusercontent.com/101200406/195984221-fa8656cd-432b-468a-9288-cebb1e728b7a.png)
-<img src="[https://your-image-url.type](https://user-images.githubusercontent.com/101200406/195984221-fa8656cd-432b-468a-9288-cebb1e728b7a.png)" width="400" height="300">
 
 #### Friendships
 
@@ -74,20 +72,36 @@ https://user-images.githubusercontent.com/101200406/195985880-d1fca843-722c-42a4
 - View posts of friends from their profile page.  :white_check_mark:
 - Send/accept a friend request from a user's profile page.  :white_check_mark:
 
-![register](https://user-images.githubusercontent.com/101200406/195984216-8d0ba5c0-01b8-409e-820e-267d69e48272.png)
-
 
 
 # How to run this app locally?
 
 - Clone the repository
-- Navigate to the project directory by running `cd odin-facebook`
-- Run `bundle install`
-- Run `rails db:migrate` to setup the database
-- Run `rails db:seed` to seed the database
-- Start the rails server by running `./bin/dev`
-- Visit https://localhost:3000 to view the app in the browser
+- ```bash
+  git clone https://github.com/Ivan-P23994/Facebook_Clone.git
+```
+- Navigate to the project directory
+  cd facebook_clone
+```
+-Install dependencies
 
+```bash
+  bundle install
+```
+
+- Set up the database
+
+```bash
+  rails db:setup
+```
+
+- Start the server
+
+```bash
+  `./bin/dev`
+```
+
+- Visit https://localhost:3000 to view the app in the browser
 
 You can login with
 Username - janeDoe@example.com
