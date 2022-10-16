@@ -1,22 +1,13 @@
 # README
 
 
-
-### Reflection
-
-This was a rewarding project. The initial challenge was modeling friendships, which I based around the idea of a friendship sender and receiver. Once a friendship is requested, the `Friendship` object is created. To confirm the state of the friendship relation between two users I used some rails magic along with SQL statements to check are there two reversed friendship objects aimed at each of the users. Depending on the result of the query we can observe the state of the friendship between two users. In hindsight I am aware there were potentialy better ways to go about it(eg. using a default model enum state that changes) but I achieved satisfactory results with this setup therefor I decided to keep it as is.
-
-
-Another challenge was figuring out how to harness the power of Hotwire to make the app seem alive using turbo_frame_tag, turbo streams and stimulus controllers for events watching.
-
-
 ### 👾 Tech Stack
 
 
 
 [![My Skills](https://skillicons.dev/icons?i=html,css,js,ruby,rails,postgres,tailwind)](https://skillicons.dev)
 
-
+### 📺 Session Preview
 
 https://user-images.githubusercontent.com/101200406/195985880-d1fca843-722c-42a4-b054-f6eaef044882.mp4
 
@@ -106,4 +97,13 @@ https://user-images.githubusercontent.com/101200406/195985880-d1fca843-722c-42a4
 You can login with
 Username - janeDoe@example.com
 Password - 123456
+
+### ⭐ Reflection
+
+This was a rewarding project. The initial challenge was modeling friendships, which I based around the idea of a friendship sender and receiver. Once a friendship is requested, the `Friendship` object is created. To confirm the state of the friendship relation between two users I used some rails magic along with SQL statements to check are there two reversed friendship objects aimed at each of the users. Depending on the result we can observe the state of the friendship between two users. In hindsight I am aware there were potentialy better ways to go about it(eg. using a default model enum state) but I achieved satisfactory results with this setup therefor I decided to keep it as is.
+
+
+Another challenge was figuring out how to harness the power of Hotwire to make the app seem alive using turbo_frame_tag, turbo streams and stimulus controllers for events watching. Nesting frames into each other and watching which "link_to" & "button_to" need to trigger the frame and which has to exit it with "top". 
+
+This project was ment to showcase my ability to use _Ruby on Rails_ on both sides of the stack, and while it is far from perfect I think it was a sucessful ordeal. 
 
