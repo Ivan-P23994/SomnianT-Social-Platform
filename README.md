@@ -8,11 +8,11 @@
 [![My Skills](https://skillicons.dev/icons?i=html,css,js,ruby,rails,postgres,tailwind)](https://skillicons.dev)
 
 ### 📺 Session Preview
-<br/>
+
 ![landing](https://user-images.githubusercontent.com/101200406/196034269-28fb3d7f-3194-4d2b-a327-39ce2453734b.png)
-<br/>
+
 ![landing](https://user-images.githubusercontent.com/101200406/196034276-b2519157-113c-4ba6-8fc8-e272d97e003c.png)
-<br/>
+
 
 
 https://user-images.githubusercontent.com/101200406/196034414-c6a27a28-5b08-4c16-83cf-82d9bf39bdcc.mp4
