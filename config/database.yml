@@ -83,7 +83,6 @@ test:
 #
 production:
   <<: *default
-  url: <%= ENV['DATABASE_URL'] %>
   database: facebook_clone_production
   username: facebook_clone
   password: <%= ENV["FACEBOOK_CLONE_DATABASE_PASSWORD"] %>

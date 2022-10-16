@@ -4,7 +4,6 @@ This project is a generic social platform built with Ruby on Rails in the back,
 Tailwindcss for styling and Hotwire + Stimulus for some frontend magic. 
 
 
-![This is a landing page image](https://drive.google.com/file/d/1Ch3Nc3H6IoeZV_ichlShL3UOzx05Enfw/view?usp=sharing)
 
 
 # Features
