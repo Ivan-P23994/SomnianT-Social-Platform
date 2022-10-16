@@ -28,7 +28,7 @@ https://user-images.githubusercontent.com/101200406/195985880-d1fca843-722c-42a4
 #### Registration
 
 - Receive a welcome email on signup (SendGrid add-on) 
-- Authentication via Devise _or_  ✔️
+- Authentication via Devise _or_  :white_check_mark:
 - Signup/login with GitHub using OAuth2 
 
 ![landing](https://user-images.githubusercontent.com/101200406/195984221-fa8656cd-432b-468a-9288-cebb1e728b7a.png)
@@ -37,42 +37,42 @@ https://user-images.githubusercontent.com/101200406/195985880-d1fca843-722c-42a4
 #### Friendships
 
 - Add other users as friends.  :white_check_mark:
-- "Unfriend" other users.  ✔️
-- Search for other users by name.  ✔️
-- Accept or decline friendships from Notifications page.  ✔️
+- "Unfriend" other users.  :white_check_mark:
+- Search for other users by name.  :white_check_mark:
+- Accept or decline friendships from Notifications page.  :white_check_mark:
 
 #### Posts
 
-- Post text content, an image, or both.  ✔️
-- View your posts and friends' posts from the home page.  ✔️
-- Edit/Delete your posts.  ✔️
-- Comment on Posts.  ✔️
-- "Like" Posts.  ✔️
+- Post text content, an image, or both.  :white_check_mark:
+- View your posts and friends' posts from the home page.  :white_check_mark:
+- Edit/Delete your posts.  :white_check_mark:
+- Comment on Posts.  :white_check_mark:
+- "Like" Posts.  :white_check_mark:
 - View which users "liked" a post.
 
 #### Comments
 
-- Comment on Posts.  ✔️
-- Edit/Delete your comments.  ✔️
+- Comment on Posts.  :white_check_mark:
+- Edit/Delete your comments.  :white_check_mark:
 - Reply to Comments (Nested Comments).
-- "Like" Comments.  ✔️
+- "Like" Comments.  :white_check_mark:
 - Hide/show comments/replies.
-- View which users "liked" a comment.  ✔️
+- View which users "liked" a comment.  :white_check_mark:
 
 #### Notifications
 
-- Friend requests from other users  ✔️
+- Friend requests from other users  :white_check_mark:
 - When a user accepts your friend requests
 - When another user comments on or likes your post/comment
 - Dismiss one or all notifications.
 
 #### Profile
 
-- Upload a profile picture.  ✔️
-- Create a profile with basic attributes  ✔️
+- Upload a profile picture.  :white_check_mark:
+- Create a profile with basic attributes  :white_check_mark:
 - Create a post from your profile page.
-- View posts of friends from their profile page.  ✔️
-- Send/accept a friend request from a user's profile page.  ✔️
+- View posts of friends from their profile page.  :white_check_mark:
+- Send/accept a friend request from a user's profile page.  :white_check_mark:
 
 ![register](https://user-images.githubusercontent.com/101200406/195984216-8d0ba5c0-01b8-409e-820e-267d69e48272.png)
 
