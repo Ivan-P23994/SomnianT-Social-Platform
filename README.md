@@ -36,7 +36,7 @@ https://user-images.githubusercontent.com/101200406/195985880-d1fca843-722c-42a4
 
 #### Friendships
 
-- Add other users as friends.  ✔️
+- Add other users as friends.  :white_check_mark:
 - "Unfriend" other users.  ✔️
 - Search for other users by name.  ✔️
 - Accept or decline friendships from Notifications page.  ✔️
