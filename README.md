@@ -43,6 +43,7 @@ https://user-images.githubusercontent.com/101200406/196034414-c6a27a28-5b08-4c16
 #### Posts
 
 - Post text content, an image, or both.  :white_check_mark:
+- Employ a modal pop up window for post creation ✅
 - View your posts and friends' posts from the home page.  :white_check_mark:
 - Edit/Delete your posts.  :white_check_mark:
 - Comment on Posts.  :white_check_mark:
@@ -53,6 +54,7 @@ https://user-images.githubusercontent.com/101200406/196034414-c6a27a28-5b08-4c16
 
 - Comment on Posts.  :white_check_mark:
 - Edit/Delete your comments.  :white_check_mark:
+- Employ turbo frames for comment Edit/Delete actions :white_check_mark:
 - Reply to Comments (Nested Comments).
 - "Like" Comments.  :white_check_mark:
 - Hide/show comments/replies.
@@ -61,6 +63,7 @@ https://user-images.githubusercontent.com/101200406/196034414-c6a27a28-5b08-4c16
 #### Notifications
 
 - Friend requests from other users  :white_check_mark:
+- Employ turbo stream to update friend requests counter :white_check_mark:
 - When a user accepts your friend requests
 - When another user comments on or likes your post/comment
 - Dismiss one or all notifications.
@@ -105,7 +108,7 @@ https://user-images.githubusercontent.com/101200406/196034414-c6a27a28-5b08-4c16
 - Visit https://localhost:3000 to view the app in the browser
 
 You can login with
-Username - janeDoe@example.com
+Username - johnDoe@example.com
 Password - 123456
 
 ### ⭐ Reflection
@@ -115,5 +118,5 @@ This was a rewarding project. The initial challenge was modeling friendships, wh
 
 Another challenge was figuring out how to harness the power of Hotwire to make the app seem alive using turbo_frame_tag, turbo streams and stimulus controllers for events watching. Nesting frames into each other and watching which "link_to" & "button_to" need to trigger the frame and which has to exit it with "top". 
 
-This project was ment to showcase my ability to use _Ruby on Rails_ on both sides of the stack, and while it is far from perfect I think it was a sucessful ordeal. 
+This project was ment to showcase my ability to use _Ruby on Rails_ on both sides of the stack, and while it is far from perfect I think it was a sucessful ordeal because I reviewed and learned many new concepts.
 
