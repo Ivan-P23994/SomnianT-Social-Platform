@@ -120,5 +120,5 @@ This was a rewarding project. The initial challenge was modeling friendships, wh
 
 Another challenge was figuring out how to harness the power of Hotwire to make the app seem alive using turbo_frame_tag, turbo streams and stimulus controllers for events watching. Nesting frames into each other and watching which "link_to" & "button_to" need to trigger the frame and which has to exit it with "top". 
 
-This project was ment to showcase my ability to use _Ruby on Rails_ on both sides of the stack, and while it is far from perfect I think it was a sucessful ordeal because I reviewed and learned many new concepts.
+
 
