@@ -85,6 +85,8 @@ https://user-images.githubusercontent.com/101200406/196034414-c6a27a28-5b08-4c16
   git clone https://github.com/Ivan-P23994/Facebook_Clone.git
 ```
 - Navigate to the project directory
+
+```bash
   cd facebook_clone
 ```
 - Install dependencies
