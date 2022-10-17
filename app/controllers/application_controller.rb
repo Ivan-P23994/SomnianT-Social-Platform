@@ -7,7 +7,7 @@ class ApplicationController < ActionController::Base
   protected
 
   def configure_permitted_parameters
-    devise_parameter_sanitizer.permit(:sign_up, keys: [:first_name, :last_name, { profile_attributes: [:birth_day, :birth_month, :birth_year, :gender, :occupation, :birth_place] }]) #rubocop:disable Layout/LineLength
+    devise_parameter_sanitizer.permit(:sign_up, keys: [:id, :first_name, :last_name, { profile_attributes: [:birth_day, :birth_month, :birth_year, :gender, :occupation, :birth_place] }]) #rubocop:disable Layout/LineLength
   end
 
   def after_sign_out_path_for(_resource)
