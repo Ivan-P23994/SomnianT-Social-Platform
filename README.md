@@ -21,8 +21,13 @@ https://user-images.githubusercontent.com/101200406/196034414-c6a27a28-5b08-4c16
 
 <br/><br/>
 
+## Live Preview
 
+- https://facebook-clone-jed3.onrender.com/
 
+You can login with:
+Username - johnDoe@example.com
+Password - 123456
 
 ### 📋 Feature Roadmap
 
@@ -87,7 +92,7 @@ https://user-images.githubusercontent.com/101200406/196034414-c6a27a28-5b08-4c16
 - Navigate to the project directory
 
 ```bash
-  cd facebook_clone
+  cd SomnianT-Social-Platform
 ```
 - Install dependencies
 
