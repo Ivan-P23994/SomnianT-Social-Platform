@@ -3,9 +3,15 @@
 
 ### 👾 Tech Stack
 
-
-
 [![My Skills](https://skillicons.dev/icons?i=html,css,js,ruby,rails,postgres,tailwind)](https://skillicons.dev)
+
+## Live Preview
+
+- https://facebook-clone-jed3.onrender.com/
+
+You can login with: 
+Username - johnDoe@example.com 
+Password - 123456
 
 ### 📺 Session Preview
 
@@ -20,14 +26,6 @@
 https://user-images.githubusercontent.com/101200406/196034414-c6a27a28-5b08-4c16-83cf-82d9bf39bdcc.mp4
 
 <br/><br/>
-
-## Live Preview
-
-- https://facebook-clone-jed3.onrender.com/
-
-You can login with:
-Username - johnDoe@example.com
-Password - 123456
 
 ### 📋 Feature Roadmap
 
