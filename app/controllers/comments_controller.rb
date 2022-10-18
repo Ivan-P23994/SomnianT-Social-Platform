@@ -68,9 +68,7 @@ class CommentsController < ApplicationController
     end
 
     respond_to do |format|
-      format.turbo_stream do
-        render turbo_stream: private_stream
-      end
+      format.turbo_stream
     end
   end
 
