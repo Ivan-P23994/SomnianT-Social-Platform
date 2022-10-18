@@ -1,24 +1,19 @@
 class CommentsController < ApplicationController
   before_action :set_comment, only: %i[show edit update destroy]
 
-  # GET /comments or /comments.json
   def index
     @comments = Comment.all
   end
 
-  # GET /comments/1 or /comments/1.json
   def show; end
 
-  # GET /comments/new
   def new
     @comment = Comment.new
     @post_id = params[:post_id]
   end
 
-  # GET /comments/1/edit
   def edit; end
 
-  # POST /comments or /comments.json
   def create
     @comment = Comment.new(comment_params)
 
@@ -32,7 +27,6 @@ class CommentsController < ApplicationController
     end
   end
 
-  # PATCH/PUT /comments/1 or /comments/1.json
   def update
     respond_to do |format|
       if @comment.update(comment_params)
@@ -47,7 +41,6 @@ class CommentsController < ApplicationController
     end
   end
 
-  # DELETE /comments/1 or /comments/1.json
   def destroy
     @post = Post.find(@comment.post.id)
     @comment.destroy
@@ -74,22 +67,10 @@ class CommentsController < ApplicationController
 
   private
 
-  def private_stream
-    private_target = "#{helpers.dom_id(@comment)}_private_comment_likes"
-    turbo_stream.replace(private_target,
-                         partial: 'shared/comment_like',
-                         locals: {
-                           comment: @comment,
-                           like_status: current_user.liked_comment?(@comment)
-                         })
-  end
-
-  # Use callbacks to share common setup or constraints between actions.
   def set_comment
     @comment = Comment.find(params[:id])
   end
 
-  # Only allow a list of trusted parameters through.
   def comment_params
     params.require(:comment).permit(:author_id, :post_id, :body)
   end

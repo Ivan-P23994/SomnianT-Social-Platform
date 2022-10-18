@@ -12,6 +12,10 @@ class FriendshipController < ApplicationController
     end
   end
 
+  def show
+    @fr_requests = current_user.not_responded_requests
+  end
+
   def befriend_discovered_user
     current_user.befriend(params[:friend_id])
 
@@ -25,9 +29,6 @@ class FriendshipController < ApplicationController
     end
   end
 
-  def show
-    @fr_requests = current_user.not_responded_requests
-  end
 
   def request_response
     @friendship = Friendship.find(params[:request])
@@ -40,5 +41,15 @@ class FriendshipController < ApplicationController
     respond_to do |format|
       format.turbo_stream
     end
+  end
+
+  private
+
+  def set_friendship
+    @friendship = friendship.find(params[:id])
+  end
+
+  def friendship_params
+    params.require(:friendship).permit(:user_id, :friend_id)
   end
 end
