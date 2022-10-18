@@ -1,5 +1,4 @@
 class LikesController < ApplicationController
-  before_action :authenticate_user!, except: %i[show]
 
   def new
     @post = Post.find(params[:liked_on_id])
