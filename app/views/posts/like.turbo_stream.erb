@@ -1,0 +1,7 @@
+<% private_target = "#{dom_id(@post)} private_likes" %>
+<%= turbo_stream.replace(private_target,
+                         partial: 'shared/like_button',
+                         locals: {
+                           post: @post,
+                           like_status: current_user.liked?(@post)
+                         }) %>

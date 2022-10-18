@@ -51,7 +51,7 @@ class PostsController < ApplicationController
   end
 
   def like
-    @post = Post.find(params[:id])
+    @post = set_post
 
     if current_user.liked?(@post)
       @like = @post.likes.where(user_id: current_user.id).first
@@ -62,23 +62,11 @@ class PostsController < ApplicationController
     end
 
     respond_to do |format|
-      format.turbo_stream do
-        render turbo_stream: private_stream
-      end
+      format.turbo_stream
     end
   end
 
   private
-
-  def private_stream
-    private_target = "#{helpers.dom_id(@post)} private_likes"
-    turbo_stream.replace(private_target,
-                         partial: 'shared/like_button',
-                         locals: {
-                           post: @post,
-                           like_status: current_user.liked?(@post)
-                         })
-  end
 
   def set_post
     @post = Post.find(params[:id])
