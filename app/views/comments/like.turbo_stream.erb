@@ -1,4 +1,4 @@
- <%= private_target = "#{dom_id(@comment)}_private_comment_likes" %>
+ <% private_target = "#{dom_id(@comment)}_private_comment_likes" %>
 <%= turbo_stream.replace(private_target,
                          partial: 'shared/comment_like',
                          locals: {
