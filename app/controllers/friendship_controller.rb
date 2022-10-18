@@ -22,22 +22,18 @@ class FriendshipController < ApplicationController
     @user = current_user.not_friends?.sample(1).first
     respond_to do |format|
       format.turbo_stream do
-      render turbo_stream: turbo_stream.replace( "discovered_user_#{params[:friend_id]}",
-                                                partial: 'friendship/cards/user_card',
-                                                locals: { user: @user })
+        render turbo_stream: turbo_stream.replace("discovered_user_#{params[:friend_id]}",
+                                                  partial: 'friendship/cards/user_card',
+                                                  locals: { user: @user })
       end
     end
   end
 
-
   def request_response
     @friendship = Friendship.find(params[:request])
 
-    if params[:accept]
-      current_user.befriend(params[:friend])
-    else
-      @friendship.delete
-    end
+    params[:accept] ? current_user.befriend(params[:friend]) : @friendship.delete
+
     respond_to do |format|
       format.turbo_stream
     end
