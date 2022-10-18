@@ -3,9 +3,15 @@
 
 ### 👾 Tech Stack
 
-
-
 [![My Skills](https://skillicons.dev/icons?i=html,css,js,ruby,rails,postgres,tailwind)](https://skillicons.dev)
+
+## Live Preview
+
+- https://facebook-clone-jed3.onrender.com/
+
+You can login with: 
+Username - johnDoe@example.com 
+Password - 123456
 
 ### 📺 Session Preview
 
@@ -20,9 +26,6 @@
 https://user-images.githubusercontent.com/101200406/196034414-c6a27a28-5b08-4c16-83cf-82d9bf39bdcc.mp4
 
 <br/><br/>
-
-
-
 
 ### 📋 Feature Roadmap
 
@@ -87,7 +90,7 @@ https://user-images.githubusercontent.com/101200406/196034414-c6a27a28-5b08-4c16
 - Navigate to the project directory
 
 ```bash
-  cd facebook_clone
+  cd SomnianT-Social-Platform
 ```
 - Install dependencies
 
@@ -120,5 +123,5 @@ This was a rewarding project. The initial challenge was modeling friendships, wh
 
 Another challenge was figuring out how to harness the power of Hotwire to make the app seem alive using turbo_frame_tag, turbo streams and stimulus controllers for events watching. Nesting frames into each other and watching which "link_to" & "button_to" need to trigger the frame and which has to exit it with "top". 
 
-This project was ment to showcase my ability to use _Ruby on Rails_ on both sides of the stack, and while it is far from perfect I think it was a sucessful ordeal because I reviewed and learned many new concepts.
+
 
