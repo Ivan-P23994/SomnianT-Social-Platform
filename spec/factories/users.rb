@@ -15,9 +15,14 @@
 #
 FactoryBot.define do
   factory :user, aliases: [:author, :friend] do
+    sequence(:id) {|n| n}
     sequence(:password) { |n| "password#{n}" }
     sequence(:email) { |n| "user-#{n}@email.com" }
     sequence(:first_name) { |n| "user#{n}" }
     sequence(:last_name) { |n| "useric#{n}" }
+
+    after(:build) do |user|
+      user.profile ||= create(:profile, user: user)
+    end
   end
 end

@@ -15,12 +15,19 @@
 #
 FactoryBot.define do
   factory :profile do
-    association :user
     sequence(:birth_year) { |n| DateTime.now - 10 + n.year }
     birth_month { DateTime.now.month }
     birth_day { DateTime.now.day }
     gender { Faker::Gender.binary_type }
     occupation { Faker::Job.title }
     birth_place { Faker::Address.city }
+    after(:build) do |post|
+      post.image.attach(
+        io: File.open(
+        Rails.root.join('app', 'assets', 'images', 'cat.jpeg')),
+        filename: 'cat.jpeg',
+        content_type: 'image/jpeg'
+        )
+    end
   end
 end
