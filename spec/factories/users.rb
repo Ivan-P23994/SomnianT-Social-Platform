@@ -14,7 +14,7 @@
 #  updated_at             :datetime         not null
 #
 FactoryBot.define do
-  factory :user, aliases: [:author] do
+  factory :user, aliases: [:author, :friend] do
     sequence(:password) { |n| "password#{n}" }
     sequence(:email) { |n| "user-#{n}@email.com" }
     sequence(:first_name) { |n| "user#{n}" }
