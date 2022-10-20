@@ -15,4 +15,3 @@ services:
           name: facebook_clone
           property: connectionString
       - key: RAILS_MASTER_KEY
-        sync: false
