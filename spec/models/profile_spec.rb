@@ -19,4 +19,9 @@ RSpec.describe Profile, type: :model do
   subject { build(:profile) }
 
   it { is_expected.to belong_to(:user) }
+  it { is_expected.to validate_presence_of(:gender) }
+  it { is_expected.to validate_presence_of(:birth_month) }
+  it { is_expected.to validate_presence_of(:birth_year) }
+  it { is_expected.to validate_presence_of(:birth_day) }
+  it { is_expected.to validate_presence_of(:image) }
 end
