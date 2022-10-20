@@ -16,7 +16,6 @@ class Friendship < ApplicationRecord
 
   validates :user_id, :friend_id, presence: true
   validate :user_is_not_equal_friend
-  validate :friends_max?
   validates :user_id, presence: true, uniqueness: { scope: :friend_id }
 
   def mutual?
@@ -27,9 +26,5 @@ class Friendship < ApplicationRecord
 
   def user_is_not_equal_friend
     errors.add(:friend, 'No self referential friend requests allowed.') if user == friend
-  end
-
-  def friends_max?
-    errors.add(:friend, 'You can only have 100 friends.') if user.friends.count >= 100
   end
 end
