@@ -19,19 +19,23 @@ class Profile < ApplicationRecord
   has_one_attached :image
   belongs_to :user
 
+  validates :gender, :image, :birth_day, :birth_month, :birth_year, presence: true
+
   def birthday
     "#{birth_day} / #{Date::MONTHNAMES[birth_month.to_i]} / #{birth_year}"
   end
 
   def avatar
-    image.attached? ? image.variant(resize_to_limit: [250, 250]).processed : image.attach(
-      io: File.open(
-        Rails.root.join(
-          'app', 'assets', 'images', 'cat.jpeg'
+    if image.attached?
+      image.variant(resize_to_limit: [250, 250]).processed
+    else 
+      image.attach(
+        io: File.open(
+        Rails.root.join('app', 'assets', 'images', 'cat.jpeg')),
+        filename: 'cat.jpeg',
+        content_type: 'image/jpeg'
         )
-      ), filename: 'cat.jpeg',
-      content_type: 'image/jpeg'
-    )
+    end
   end
 
   protected
