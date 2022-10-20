@@ -19,7 +19,7 @@ class Profile < ApplicationRecord
   has_one_attached :image
   belongs_to :user
 
-  validates :gender, :image, :birth_day, :birth_month, :birth_year, presence: true
+  validates :gender, :birth_day, :birth_month, :birth_year, presence: true
 
   def birthday
     "#{birth_day} / #{Date::MONTHNAMES[birth_month.to_i]} / #{birth_year}"
