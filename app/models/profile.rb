@@ -28,13 +28,14 @@ class Profile < ApplicationRecord
   def avatar
     if image.attached?
       image.variant(resize_to_limit: [250, 250]).processed
-    else 
+    else
       image.attach(
         io: File.open(
-        Rails.root.join('app', 'assets', 'images', 'cat.jpeg')),
+          Rails.root.join('app', 'assets', 'images', 'cat.jpeg')
+        ),
         filename: 'cat.jpeg',
         content_type: 'image/jpeg'
-        )
+      )
     end
   end
 

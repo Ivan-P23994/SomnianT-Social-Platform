@@ -12,7 +12,8 @@
 #  birth_place :string
 #  created_at  :datetime         not null
 #  updated_at  :datetime         not null
-#
+include ActiveStorage::Blob::Analyzable
+
 FactoryBot.define do
   factory :profile do
     sequence(:birth_year) { |n| DateTime.now - 10 + n.year }
@@ -24,10 +25,11 @@ FactoryBot.define do
     after(:build) do |post|
       post.image.attach(
         io: File.open(
-        Rails.root.join('app', 'assets', 'images', 'cat.jpeg')),
+          Rails.root.join('app', 'assets', 'images', 'cat.jpeg')
+        ),
         filename: 'cat.jpeg',
         content_type: 'image/jpeg'
-        )
+      )
     end
   end
 end
