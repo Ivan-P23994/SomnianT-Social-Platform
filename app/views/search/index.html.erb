@@ -1,7 +1,7 @@
 <turbo-frame id="<%= params.fetch(:turbo_frame, "search_results") %>">
 <% if @users.length > 0 %>
-  <div class="absolute top-20 p-2 w-full bg-white boder-2 border-gray-300 rounded-lg shadow-md">
-    <ul role="listbox" data-combobox-target="list" class="space-y-1 ">
+  <div id="search_results_wrap" class="absolute top-20 p-2 w-full bg-white boder-2 border-gray-300 rounded-lg shadow-md">
+    <ul role="listbox" data-combobox-target="list" class="space-y-1">
       <% @users.first(10).each do |user| %>
         <li>
           <div class="flex flex-row hover:border">

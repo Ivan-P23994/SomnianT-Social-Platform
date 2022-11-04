@@ -1,10 +1,10 @@
 <%= turbo_frame_tag "friend_request_#{r.id}" do %>
-<div class="flex flex-row w-30vw bg-white rounded-lg border border-gray-200 shadow-md mt-10 p-3 justify-center">
-  <div class="flex mr-10">
+<div class="flex flex-row w-full bg-white rounded-lg border border-gray-200 shadow-md mt-10 p-3 justify-center">
+  <div class="flex mr-5">
     <%= image_tag r.user.profile.avatar, class:' w-24 h-24 rounded-full' %>
   </div>
 
-  <div class="flex flex-col w-20vw">
+  <div class="flex flex-col">
     <span class="mb-1 text-sm"><b><%= r.user.full_name %></b> sent you a friend request.</span>
 
     <div class="flex flex-row h-auto">
