@@ -5,10 +5,6 @@
 
 [![My Skills](https://skillicons.dev/icons?i=html,css,js,ruby,rails,postgres,tailwind)](https://skillicons.dev)
 
-## Live Preview
-
-- https://facebook-clone-jed3.onrender.com/
-
 You can login with: 
 Username - johnDoe@example.com 
 Password - 123456
