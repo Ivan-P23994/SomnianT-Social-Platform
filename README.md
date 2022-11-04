@@ -77,7 +77,7 @@ https://user-images.githubusercontent.com/101200406/196034414-c6a27a28-5b08-4c16
 
 - Clone the repository
  ```bash
-  git clone https://github.com/Ivan-P23994/Facebook_Clone.git
+  git@github.com:Ivan-P23994/SomnianT-Social-Platform.git
 ```
 - Navigate to the project directory
 
