@@ -5,14 +5,6 @@
 
 [![My Skills](https://skillicons.dev/icons?i=html,css,js,ruby,rails,postgres,tailwind)](https://skillicons.dev)
 
-## Live Preview
-
-- https://facebook-clone-jed3.onrender.com/
-
-You can login with: 
-Username - johnDoe@example.com 
-Password - 123456
-
 ### 📺 Session Preview
 
 ![landing](https://user-images.githubusercontent.com/101200406/196034269-28fb3d7f-3194-4d2b-a327-39ce2453734b.png)
@@ -85,7 +77,7 @@ https://user-images.githubusercontent.com/101200406/196034414-c6a27a28-5b08-4c16
 
 - Clone the repository
  ```bash
-  git clone https://github.com/Ivan-P23994/Facebook_Clone.git
+  git clone git@github.com:Ivan-P23994/SomnianT-Social-Platform.git
 ```
 - Navigate to the project directory
 
@@ -112,8 +104,8 @@ https://user-images.githubusercontent.com/101200406/196034414-c6a27a28-5b08-4c16
 
 - Visit https://localhost:3000 to view the app in the browser
 
-You can login with
-Username - johnDoe@example.com
+You can login with:
+Username - johnDoe@example.com,
 Password - 123456
 
 ### ⭐ Reflection
