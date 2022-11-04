@@ -77,7 +77,7 @@ https://user-images.githubusercontent.com/101200406/196034414-c6a27a28-5b08-4c16
 
 - Clone the repository
  ```bash
-  git@github.com:Ivan-P23994/SomnianT-Social-Platform.git
+  git clone git@github.com:Ivan-P23994/SomnianT-Social-Platform.git
 ```
 - Navigate to the project directory
 
@@ -104,8 +104,8 @@ https://user-images.githubusercontent.com/101200406/196034414-c6a27a28-5b08-4c16
 
 - Visit https://localhost:3000 to view the app in the browser
 
-You can login with
-Username - johnDoe@example.com
+You can login with:
+Username - johnDoe@example.com,
 Password - 123456
 
 ### ⭐ Reflection
