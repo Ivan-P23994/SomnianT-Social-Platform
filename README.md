@@ -5,10 +5,6 @@
 
 [![My Skills](https://skillicons.dev/icons?i=html,css,js,ruby,rails,postgres,tailwind)](https://skillicons.dev)
 
-You can login with: 
-Username - johnDoe@example.com 
-Password - 123456
-
 ### 📺 Session Preview
 
 ![landing](https://user-images.githubusercontent.com/101200406/196034269-28fb3d7f-3194-4d2b-a327-39ce2453734b.png)
